@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- GOOGLE SEO META TAGS -->
+  <title>PixelActuate Hub | Robotics, Physics & Math Workshops (Class 6–10) | Hyderabad</title>
+  <meta name="description" content="PixelActuate Hub — Concepts in Motion. Hands-on School Robotics Bootcamps, Class 6–10 Physics & Math Tuitions, and STEM Workshops in Hyderabad led by Founder Hari Pavan P (Automotive ADAS & Embedded Systems Developer)." />
+  <meta name="keywords" content="PixelActuate Hub, PixelActuate, Robotics workshop Hyderabad, School robotics bootcamp Class 6 to 10, Hari Pavan P, Arduino workshop for school students, Physics and Math weekend tuition Hyderabad, STEM education Hyderabad, RoboQuest bootcamp" />
+  <meta name="author" content="Hari Pavan P - Founder, PixelActuate Hub" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- OPEN GRAPH (WHATSAPP / LINKEDIN LINK PREVIEW) -->
+  <meta property="og:title" content="PixelActuate Hub | Concepts in Motion — School Robotics & STEM" />
+  <meta property="og:description" content="Zero-infrastructure 4-Week Hands-On Robotics Bootcamp & Class 6–10 Physics/Math Mentorship led by an Automotive ADAS Developer." />
+  <meta property="og:image" content="https://hari1930.github.io/PixelActuate_Hub/logo.jpg" />
+  <meta property="og:url" content="https://hari1930.github.io/PixelActuate_Hub/" />
+  <meta property="og:type" content="website" />
+
+  <!-- GOOGLE STRUCTURED DATA (SCHEMA.ORG FOR EDUCATIONAL ORGANIZATION) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "PixelActuate Hub",
+    "alternateName": "PixelActuate Hub - Concepts in Motion",
+    "url": "https://hari1930.github.io/PixelActuate_Hub/",
+    "logo": "https://hari1930.github.io/PixelActuate_Hub/logo.jpg",
+    "founder": {
+      "@type": "Person",
+      "name": "Hari Pavan P",
+      "jobTitle": "Founder & Lead STEM Mentor | Automotive ADAS Embedded Developer"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "addressCountry": "IN"
+    },
+    "email": "pixelactuate.edtech@gmail.com",
+    "telephone": "+91-93913-62223",
+    "description": "Practical Applied STEM Initiative offering Class 6–10 Robotics Bootcamps, Physics & Math Tuitions, and Online Workshops."
+  }
+  </script>
+
+  <style>
+    :root {
+      --navy-dark: #070d19;
+      --navy: #0f1b2e;
+      --navy-card: #13233d;
+      --orange: #f59e0b;
+      --orange-glow: rgba(245, 158, 11, 0.25);
+      --cyan: #38bdf8;
+      --cyan-glow: rgba(56, 189, 248, 0.2);
+      --green: #22c55e;
+      --text-light: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: rgba(56, 189, 248, 0.22);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    
+    body {
+      background-color: var(--navy-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      /* SUBTLE EMBEDDED CIRCUIT BOARD SVG BACKGROUND PATTERN */
+      background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2338bdf8' stroke-opacity='0.07' stroke-width='1.2'%3E%3Cpath d='M10 10h30v20h20M80 10v30h30M10 90h25l15-15h30v25M95 60h15v40H70'/%3E%3Ccircle cx='10' cy='10' r='2.5'/%3E%3Ccircle cx='60' cy='30' r='2.5'/%3E%3Ccircle cx='80' cy='10' r='2.5'/%3E%3Ccircle cx='110' cy='40' r='2.5'/%3E%3Ccircle cx='10' cy='90' r='2.5'/%3E%3Ccircle cx='80' cy='100' r='2.5'/%3E%3Crect x='45' y='45' width='14' height='14' rx='2'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* TOP NAVIGATION BAR */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(7, 13, 25, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.7rem 1.25rem;
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;
+    }
+    .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: #fff; }
+    .brand img { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--orange); object-fit: cover; background: #fff; }
+    .brand-text strong { display: block; font-size: 1.15rem; letter-spacing: 0.3px; color: #fff; }
+    .brand-text span { font-size: 0.72rem; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
+    /* INTERACTIVE TABS */
+    .tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tab-btn {
+      background: rgba(19, 35, 61, 0.8);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.48rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover { color: #fff; border-color: var(--cyan); }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--orange), #d97706);
+      color: #070d19;
+      border-color: var(--orange);
+      box-shadow: 0 0 15px var(--orange-glow);
+    }
+
+    /* HERO BANNER */
+    .hero {
+      max-width: 1120px; margin: 1.5rem auto 0; padding: 2rem 1.25rem;
+      display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 2rem; align-items: center;
+      background: linear-gradient(145deg, rgba(19, 35, 61, 0.92), rgba(11, 21, 38, 0.96));
+      border: 1px solid var(--border); border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+    }
+    .pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(245, 158, 11, 0.14); color: var(--orange);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 0.3rem 0.85rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.9rem;
+    }
+    .hero h1 { font-size: 2.15rem; line-height: 1.2; margin-bottom: 0.85rem; color: #fff; }
+    .hero h1 span { color: var(--orange); }
+    .hero p { color: #cbd5e1; font-size: 1rem; margin-bottom: 1.35rem; }
+    .cta-group { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn-wa {
+      background: var(--green); color: #052e16; font-weight: 700;
+      padding: 0.75rem 1.3rem; border-radius: 10px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.95rem;
+    }
+    .btn-mail {
+      background: rgba(56, 189, 248, 0.14); color: var(--cyan); border: 1px solid var(--cyan);
+      font-weight: 600; padding: 0.75rem 1.3rem; border-radius: 10px; text-decoration: none; font-size: 0.95rem;
+    }
+
+    /* CIRCUIT HERO ILLUSTRATION CARD */
+    .hero-visual {
+      text-align: center; background: rgba(7, 13, 25, 0.65);
+      border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem;
+    }
+    .hero-visual img.main-logo {
+      width: 165px; height: 165px; border-radius: 50%; border: 3px solid var(--orange);
+      box-shadow: 0 0 25px var(--orange-glow); background: #fff; margin-bottom: 0.75rem;
+    }
+
+    /* MAIN TAB PANELS */
+    .container { max-width: 1120px; margin: 0 auto; padding: 1.75rem 1.25rem 3rem; }
+    .tab-panel { display: none; animation: fadeIn 0.3s ease; }
+    .tab-panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .sec-head { margin-bottom: 1.25rem; border-left: 4px solid var(--orange); padding-left: 0.85rem; }
+    .sec-head h2 { font-size: 1.5rem; color: #fff; }
+    .sec-head p { color: var(--text-muted); font-size: 0.92rem; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.15rem; margin-bottom: 1.75rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; margin-bottom: 1.75rem; }
+
+    .card {
+      background: var(--navy-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.35rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .card h3 { color: var(--cyan); font-size: 1.12rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .card p, .card li { color: #cbd5e1; font-size: 0.93rem; }
+    .card ul { padding-left: 1.2rem; margin-top: 0.5rem; }
+    .card li { margin-bottom: 0.35rem; }
+
+    /* NOVEMBER EVENT FLYER SHOWCASE */
+    .event-split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 1.5rem; align-items: start; }
+    .flyer-frame {
+      background: #070d19; padding: 0.75rem; border-radius: 14px; border: 2px solid var(--orange);
+      text-align: center;
+    }
+    .flyer-frame img { width: 100%; max-width: 380px; border-radius: 10px; display: block; margin: 0 auto; }
+
+    /* INTERACTIVE CIRCUIT SIMULATOR DEMO */
+    .sim-box {
+      background: #070d19; border: 1px solid var(--cyan); border-radius: 14px; padding: 1.25rem; margin-top: 1.25rem;
+    }
+    .sim-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 0.75rem; }
+    input[type="range"] { accent-color: var(--orange); width: 200px; }
+    .gate-status {
+      padding: 0.45rem 0.9rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem;
+      background: rgba(56, 189, 248, 0.15); color: var(--cyan);
+    }
+
+    /* TIMELINE / JOURNEY MILESTONES */
+    .timeline { border-left: 3px solid var(--orange); padding-left: 1.25rem; margin-left: 0.5rem; }
+    .t-item { position: relative; margin-bottom: 1.35rem; }
+    .t-item::before {
+      content: ""; position: absolute; left: -1.68rem; top: 0.35rem;
+      width: 12px; height: 12px; border-radius: 50%; background: var(--orange); border: 2px solid #070d19;
+    }
+    .t-date { font-size: 0.8rem; font-weight: 700; color: var(--orange); text-transform: uppercase; }
+    .t-item h4 { color: #fff; font-size: 1.05rem; margin: 0.15rem 0; }
+
+    /* RESOURCE DOWNLOAD / PREVIEW CARDS */
+    .badge-free {
+      display: inline-block; background: rgba(34, 197, 94, 0.18); color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.4); font-size: 0.72rem; font-weight: 700;
+      padding: 0.15rem 0.55rem; border-radius: 6px; margin-bottom: 0.5rem;
+    }
+
+    footer {
+      background: #050912; border-top: 1px solid var(--border);
+      padding: 2rem 1.25rem; text-align: center; color: var(--text-muted); font-size: 0.88rem;
+    }
+    footer strong { color: #fff; }
+
+    @media (max-width: 780px) {
+      .hero, .event-split { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.65rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAVIGATION -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <img src="logo.jpg" alt="PixelActuate Hub Logo" onerror="this.style.display='none'" />
+        <div class="brand-text">
+          <strong>PixelActuate Hub</strong>
+          <span>Concepts in Motion • Applied STEM</span>
+        </div>
+      </a>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="openTab('overview', this)">Overview &amp; Courses</button>
+        <button class="tab-btn" onclick="openTab('november', this)">🔥 Nov Bootcamp</button>
+        <button class="tab-btn" onclick="openTab('journey', this)">Our Developments</button>
+        <button class="tab-btn" onclick="openTab('resources', this)">Free STEM Lab</button>
+        <button class="tab-btn" onclick="openTab('founder', this)">Founder &amp; Contact</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <div class="container" style="padding-bottom: 0;">
+    <section class="hero">
+      <div>
+        <span class="pill">⚡ Class 6 to 10 • School Workshops, Online &amp; Weekend Tuitions</span>
+        <h1>Turning Textbook Science into <span>Real Working Robots</span></h1>
+        <p>
+          <strong>PixelActuate Hub</strong> bridges school-level <strong>Mathematics, Physics, and Embedded Robotics</strong> through hands-on hardware builds. Founded by <strong>Hari Pavan P</strong> (Automotive ADAS &amp; Embedded Systems Developer), we help students build real sensor-driven machines with <strong>zero infrastructure cost</strong> for schools.
+        </p>
+        <div class="cta-group">
+          <a class="btn-wa" href="https://wa.me/919391362223?text=Hello%20Hari%20Pavan,%20I%20visited%20PixelActuate%20Hub%20and%20would%20like%20to%20enquire%20about%20the%20Robotics%20Bootcamp%20/%20Classes." target="_blank">
+            💬 WhatsApp Only: +91 93913 62223
+          </a>
+          <a class="btn-mail" href="mailto:pixelactuate.edtech@gmail.com?subject=PixelActuate%20Hub%20Enquiry">
+            ✉️ pixelactuate.edtech@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img src="logo.jpg" alt="PixelActuate Hub Owl Robotics Emblem" class="main-logo" onerror="this.style.display='none'" />
+        <!-- EMBEDDED MICROCONTROLLER SVG GRAPHIC -->
+        <svg width="240" height="72" viewBox="0 0 240 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="75" y="14" width="90" height="44" rx="6" fill="#0f1b2e" stroke="#38bdf8" stroke-width="2"/>
+          <text x="120" y="34" fill="#f59e0b" font-size="10" font-weight="bold" text-anchor="middle" font-family="monospace">MCU CORE</text>
+          <text x="120" y="47" fill="#94a3b8" font-size="8" text-anchor="middle" font-family="monospace">SENSORS • PWM</text>
+          <line x1="20" y1="24" x2="75" y2="24" stroke="#f59e0b" stroke-width="2"/>
+          <line x1="20" y1="48" x2="75" y2="48" stroke="#38bdf8" stroke-width="2"/>
+          <line x1="165" y1="24" x2="220" y2="24" stroke="#38bdf8" stroke-width="2"/>
+          <line x1="165" y1="48" x2="220" y2="48" stroke="#f59e0b" stroke-width="2"/>
+          <circle cx="20" cy="24" r="4" fill="#f59e0b"/>
+          <circle cx="20" cy="48" r="4" fill="#38bdf8"/>
+          <circle cx="220" cy="24" r="4" fill="#38bdf8"/>
+          <circle cx="220" cy="48" r="4" fill="#f59e0b"/>
+        </svg>
+        <p style="font-size: 0.82rem; color: var(--cyan); font-weight: 600;">Arduino • Raspberry Pi • Ultrasonic • Servo Kinematics</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="container">
+
+    <!-- TAB 1: OVERVIEW & HOW IT WORKS -->
+    <div id="overview" class="tab-panel active">
+      <div class="sec-head">
+        <h2>What We Do &amp; How PixelActuate Hub Works</h2>
+        <p>Three structured learning tracks designed for Class 6th to 10th students (CBSE, ICSE &amp; State Boards)</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>🤖 1. School Robotics Bootcamps</h3>
+          <p><strong>Zero-Cost Lab Model for Schools:</strong> We bring all Arduino boards, breadboards, ultrasonic sensors, and servo motors directly to your campus.</p>
+          <ul>
+            <li>4-Week Saturday Modules (60 mins/week)</li>
+            <li>Strict batch of 12–16 students (4 hardware teams)</li>
+            <li>Dual-signed certificates with Principal &amp; School stamp</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>📐 2. Physics &amp; Math Mastery</h3>
+          <p><strong>Weekend Tuitions &amp; Online Batches (Class 6–10):</strong> Taught from an engineer's perspective so students visualize formulas instead of memorizing them.</p>
+          <ul>
+            <li>Electricity, Optics, Motion &amp; Force linked to real sensors</li>
+            <li>Algebra, Trigonometry &amp; Geometry problem-solving</li>
+            <li>Small interactive weekend batches + doubt clinics</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>💻 3. Online STEM Workshops</h3>
+          <p><strong>Live Virtual Maker Sessions:</strong> Students learn circuit simulation, C/C++ logic, and sensor programming from home with guided weekly challenges.</p>
+          <ul>
+            <li>Live step-by-step circuit building &amp; logic debugging</li>
+            <li>Recorded recap notes &amp; circuit wiring diagrams</li>
+            <li>Direct WhatsApp mentor feedback on student projects</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE SMART GATE SIMULATOR FOR PRINCIPALS & STUDENTS -->
+      <div class="sim-box">
+        <h3 style="color: var(--orange); margin-bottom: 0.3rem;">⚡ Interactive Preview: Smart Ultrasonic Gate (Week 4 Capstone)</h3>
+        <p style="font-size: 0.9rem; color: #cbd5e1;">Drag the distance slider below to test the exact ultrasonic sensor + servo barrier logic your students code in Week 4:</p>
+        <div class="sim-controls">
+          <label for="distRange" style="font-size: 0.9rem; font-weight: 600;">Vehicle Distance: <span id="distVal" style="color: var(--orange);">45 cm</span></label>
+          <input type="range" id="distRange" min="5" max="80" value="45" oninput="updateGate(this.value)" />
+          <div id="gateOutput" class="gate-status">🚧 GATE CLOSED (0°) • Buzzer OFF</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: NOVEMBER EVENT WORKSHOPS -->
+    <div id="november" class="tab-panel">
+      <div class="sec-head">
+        <h2>November Event: ROBOQUEST 4-Week Hands-On Bootcamp</h2>
+        <p>Live campus &amp; weekend enrollment open for Class 7th to 10th students</p>
+      </div>
+
+      <div class="event-split">
+        <div class="flyer-frame">
+          <img src="flyer.jpg" alt="ROBOQUEST 4-Week Hands-On Robotics Bootcamp Flyer" />
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.6rem;">Official November Bootcamp Roadmap Poster</p>
+        </div>
+
+        <div>
+          <div class="grid-2" style="margin-bottom: 1rem;">
+            <div class="card">
+              <h3>💡 Week 1: Circuit Foundations</h3>
+              <p>Master current flow, breadboard wiring, and analog voltage control using LEDs, resistors, and potentiometers.</p>
+            </div>
+            <div class="card">
+              <h3>📡 Week 2: Touchless Distance Alert</h3>
+              <p>Explore ultrasonic echo timing (Physics of sound waves) to construct an active acoustic proximity alarm.</p>
+            </div>
+            <div class="card">
+              <h3>⚙️ Week 3: Robotic Motion &amp; PWM</h3>
+              <p>Learn precision motor control and angular kinematics using micro-servo actuators.</p>
+            </div>
+            <div class="card">
+              <h3>🏆 Week 4: Smart City Challenge</h3>
+              <p>Integrate sensors and motors to build an automated emergency barrier/toll gate + Certification ceremony.</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-color: var(--orange);">
+            <h3 style="color: var(--orange);">📋 Operational Highlights for Schools &amp; Parents</h3>
+            <ul>
+              <li><strong>Schedule:</strong> Every Saturday | Last Period (60 Minutes) — zero disruption to regular academics.</li>
+              <li><strong>Batch Size:</strong> Strictly limited to 12–16 students (4 teams of 3–4 per hardware kit).</li>
+              <li><strong>Zero Equipment Needed:</strong> All microcontrollers (Arduino &amp; Raspberry Pi), sensors, motors, and breadboards provided in class.</li>
+              <li><strong>Booking:</strong> WhatsApp <strong>+91 93913 62223</strong> or email <strong>pixelactuate.edtech@gmail.com</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: OUR DEVELOPMENTS & MILESTONES -->
+    <div id="journey" class="tab-panel">
+      <div class="sec-head">
+        <h2>EdTech Developments &amp; Milestones Till Date</h2>
+        <p>How PixelActuate Hub evolved over the past 4 months into a complete school-ready STEM model</p>
+      </div>
+
+      <div class="card">
+        <div class="timeline">
+          <div class="t-item">
+            <span class="t-date">Month 1 • Foundation &amp; Curriculum Architecture</span>
+            <h4>Designed the Zero-Infrastructure School Lab Blueprint</h4>
+            <p>Created a modular 4-week hardware curriculum mapping Class 6–10 NCERT/CBSE Physics &amp; Math chapters directly to microcontroller experiments—eliminating the ₹4-lakh lab cost barrier for budget and mid-tier schools.</p>
+          </div>
+          <div class="t-item">
+            <span class="t-date">Month 2 • Hardware Kit Standardization</span>
+            <h4>Built &amp; Tested Multi-Team Robotics Kits</h4>
+            <p>Assembled rugged, classroom-safe prototyping kits featuring Arduino microcontrollers, ultrasonic rangefinders, IR modules, micro-servos, and breadboard power modules for 4-team parallel classroom execution.</p>
+          </div>
+          <div class="t-item">
+            <span class="t-date">Month 3 • Math &amp; Physics Applied Tuition Launch</span>
+            <h4>Started Weekend &amp; Online Conceptual Batches</h4>
+            <p>Launched personalized weekend and online Math &amp; Physics mentorship for Class 6–10 students, pairing numerical problem-solving with live sensor demonstrations.</p>
+          </div>
+          <div class="t-item">
+            <span class="t-date">Month 4 (November) • RoboQuest School Rollout</span>
+            <h4>Live School Demos &amp; Year-End Innovation Bootcamp</h4>
+            <p>Rolled out the live Smart Automated Gate demonstration kit, dual-signed Principal certification framework, and the November RoboQuest 4-Week Bootcamp across local schools.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: FREE RESOURCES & PHOTOS -->
+    <div id="resources" class="tab-panel">
+      <div class="sec-head">
+        <h2>Free STEM Resources, Wiring Guides &amp; Lab Showcase</h2>
+        <p>Open learning materials for students, teachers, and school principals</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="badge-free">FREE STARTER GUIDE</span>
+          <h3>🔌 Arduino Pinout &amp; Breadboard Map</h3>
+          <p>Visual beginner cheat-sheet explaining digital vs. analog pins, GND/5V power rails, and resistor color codes for Class 6–10 students.</p>
+          <p style="margin-top: 0.75rem;"><a href="https://wa.me/919391362223?text=Hi%20Hari,%20please%20share%20the%20Free%20Arduino%20Breadboard%20Cheat%20Sheet%20PDF." target="_blank" style="color: var(--orange); font-weight: 600; text-decoration: none;">Request PDF on WhatsApp →</a></p>
+        </div>
+
+        <div class="card">
+          <span class="badge-free">FREE PHYSICS + CODE</span>
+          <h3>📏 Ultrasonic Speed-of-Sound Lab</h3>
+          <p>How $Distance = \frac{Speed \times Time}{2}$ works in real life! Includes sample Arduino C++ sketch and worksheet for Class 8–9 Sound chapters.</p>
+          <p style="margin-top: 0.75rem;"><a href="https://wa.me/919391362223?text=Hi%20Hari,%20please%20share%20the%20Ultrasonic%20Physics%20Worksheet." target="_blank" style="color: var(--orange); font-weight: 600; text-decoration: none;">Request Worksheet on WhatsApp →</a></p>
+        </div>
+
+        <div class="card">
+          <span class="badge-free">FOR SCHOOL PRINCIPALS</span>
+          <h3>🏫 1-Page School MoU &amp; Proposal</h3>
+          <p>Complete brochure with weekly schedule, zero-cost hardware policy, safety guidelines, and sample dual-signed student certificate.</p>
+          <p style="margin-top: 0.75rem;"><a href="mailto:pixelactuate.edtech@gmail.com?subject=Request%20School%20Robotics%20Proposal" style="color: var(--cyan); font-weight: 600; text-decoration: none;">Get Proposal via Email →</a></p>
+        </div>
+      </div>
+
+      <!-- SVG HARDWARE SCHEMATIC SHOWCASE -->
+      <div class="card">
+        <h3>🛠️ Inside Our Classroom Kit (Hardware Architecture)</h3>
+        <p style="margin-bottom: 1rem;">Every student team works hands-on with industry-standard prototyping blocks—no pre-glued toys:</p>
+        <div class="grid-3" style="margin-bottom: 0;">
+          <div style="background:#070d19; padding:1rem; border-radius:10px; border:1px solid var(--border); text-align:center;">
+            <strong style="color:var(--orange);">01. Microcontroller</strong>
+            <p style="font-size:0.85rem;">Arduino Uno / Nano &amp; Raspberry Pi edge computing boards</p>
+          </div>
+          <div style="background:#070d19; padding:1rem; border-radius:10px; border:1px solid var(--border); text-align:center;">
+            <strong style="color:var(--cyan);">02. Perception Sensors</strong>
+            <p style="font-size:0.85rem;">HC-SR04 Ultrasonic, IR Obstacle, LDR Light &amp; Temp Sensors</p>
+          </div>
+          <div style="background:#070d19; padding:1rem; border-radius:10px; border:1px solid var(--border); text-align:center;">
+            <strong style="color:#4ade80;">03. Actuation &amp; Alerts</strong>
+            <p style="font-size:0.85rem;">SG90 Micro-Servo Motors, Piezo Buzzers &amp; LED Indicators</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: FOUNDER & DIRECT CONTACT -->
+    <div id="founder" class="tab-panel">
+      <div class="sec-head">
+        <h2>About the Founder &amp; Direct Enquiries</h2>
+        <p>Learn directly from a practicing automotive embedded systems engineer</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>👨‍💻 Hari Pavan P — Founder &amp; Lead STEM Mentor</h3>
+          <p style="margin-bottom: 0.75rem;">
+            <strong>Automotive ADAS &amp; Embedded Systems Developer</strong> working in the Mobility domain, with specialized expertise in Embedded C/C++, sensors, real-time actuators, Robotics (ROS/Arduino), Physics, and Mathematics.
+          </p>
+          <p>
+            <em>"High school students memorize Ohm's Law, sound reflection, and trigonometry without ever seeing how they power real vehicles and robots. I founded PixelActuate Hub so every student in Class 6–10 can wire, code, and build real machines with their own hands."</em>
+          </p>
+        </div>
+
+        <div class="card" style="border-color: var(--green);">
+          <h3 style="color: var(--green);">📞 Contact &amp; Demo Booking</h3>
+          <p style="margin-bottom: 0.85rem;">For School Principal demos, November Bootcamp registrations, or Class 6–10 Math/Physics/Robotics tuition enquiries:</p>
+          <ul>
+            <li><strong>WhatsApp Only (No Voice Calls):</strong> <a href="https://wa.me/919391362223" target="_blank" style="color: #4ade80; font-weight: 700;">+91 93913 62223</a></li>
+            <li><strong>Official Gmail:</strong> <a href="mailto:pixelactuate.edtech@gmail.com" style="color: var(--cyan); font-weight: 700;">pixelactuate.edtech@gmail.com</a></li>
+            <li><strong>Location:</strong> Hyderabad, Telangana (On-Campus School Workshops &amp; Live Online Classes across India)</li>
+          </ul>
+          <div style="margin-top: 1.1rem;">
+            <a class="btn-wa" href="https://wa.me/919391362223?text=Hello%20Hari%20Pavan,%20I%20would%20like%20to%20connect%20regarding%20PixelActuate%20Hub." target="_blank">
+              Message on WhatsApp Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>PixelActuate Hub — Concepts in Motion</strong><br />
+    Practical Applied STEM Initiative • Class 6–10 Robotics, Physics &amp; Math<br />
+    Founder: Hari Pavan P • WhatsApp: +91 93913 62223 • Email: pixelactuate.edtech@gmail.com
+  </footer>
+
+  <!-- INTERACTIVE JAVASCRIPT -->
+  <script>
+    function openTab(tabId, btn) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function updateGate(val) {
+      document.getElementById('distVal').innerText = val + ' cm';
+      const out = document.getElementById('gateOutput');
+      if (parseInt(val) <= 20) {
+        out.style.background = 'rgba(34, 197, 94, 0.2)';
+        out.style.color = '#4ade80';
+        out.innerText = '✅ OBJECT DETECTED (<20cm) → GATE OPEN (90°) • Buzzer BEEP!';
+      } else {
+        out.style.background = 'rgba(56, 189, 248, 0.15)';
+        out.style.color = '#38bdf8';
+        out.innerText = '🚧 GATE CLOSED (0°) • Buzzer OFF';
+      }
+    }
+  </script>
+
+</body>
+</html>
