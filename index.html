@@ -222,7 +222,7 @@
     .card ul { padding-left: 1.2rem; margin-top: 0.45rem; }
     .card li { margin-bottom: 0.3rem; }
 
-    /* SWIPEABLE SCIENTIST QUOTE CLOUDS WITH BUILT-IN SVG PORTRAITS */
+    /* SWIPEABLE SCIENTIST QUOTE CLOUDS WITH REAL PORTRAIT PHOTOS */
     .quote-carousel {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow);
@@ -230,9 +230,13 @@
     }
     .quote-stage { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
     .sci-portrait-box {
-      width: 96px; height: 96px; border-radius: 16px; border: 2px solid var(--amber);
+      width: 104px; height: 104px; border-radius: 16px; border: 3px solid var(--amber);
       background: #0f172a; flex-shrink: 0; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.16);
+    }
+    .sci-portrait-box img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;
     }
     .speech-cloud {
       flex: 1; min-width: 240px; background: var(--blue-bg); border: 2px solid #7dd3fc;
@@ -249,7 +253,7 @@
     .dot { width: 9px; height: 9px; border-radius: 50%; background: #cbd5e1; cursor: pointer; }
     .dot.active { background: var(--amber); width: 22px; border-radius: 999px; }
 
-    /* INTERACTIVE LABS (4 LABS) */
+    /* INTERACTIVE LABS */
     .lab-box {
       background: var(--surface); border: 1px solid var(--border);
       border-left: 5px solid var(--amber); border-radius: 14px;
@@ -370,7 +374,7 @@
       </div>
       <div class="drawer-links">
         <button class="drawer-btn active" data-page="home" onclick="goPage('home')">🏠 Overview &amp; Highlights</button>
-        <button class="drawer-btn" data-page="labs" onclick="goPage('labs')">🕹️ 4 Interactive Labs</button>
+        <button class="drawer-btn" data-page="labs" onclick="goPage('labs')">🕹️ Interactive Labs</button>
         <button class="drawer-btn" data-page="bootcamp" onclick="goPage('bootcamp')">🤖 Year-End Bootcamp</button>
         <button class="drawer-btn" data-page="developments" onclick="goPage('developments')">🛠️ Our Developments</button>
         <button class="drawer-btn" data-page="enquiry" onclick="goPage('enquiry')">📋 Enquiry &amp; Founder</button>
@@ -398,7 +402,7 @@
 
         <nav class="desktop-nav">
           <button class="nav-pill active" data-page="home" onclick="goPage('home')">Overview</button>
-          <button class="nav-pill" data-page="labs" onclick="goPage('labs')">4 Interactive Labs</button>
+          <button class="nav-pill" data-page="labs" onclick="goPage('labs')">Interactive Labs</button>
           <button class="nav-pill" data-page="bootcamp" onclick="goPage('bootcamp')">Year-End Bootcamp</button>
           <button class="nav-pill" data-page="developments" onclick="goPage('developments')">Developments</button>
           <button class="nav-pill" data-page="enquiry" onclick="goPage('enquiry')">Enquiry &amp; Founder</button>
@@ -421,7 +425,7 @@
               Founded by Hari Pavan P (Automotive ADAS &amp; Embedded Systems Developer), PixelActuate Hub empowers Class 6–10 students to understand how the modern automated world works—building real sensor-driven robots and mastering Physics and Mathematics through practical experimentation.
             </p>
             <div class="cta-group">
-              <button class="btn-primary" onclick="goPage('labs')">🕹️ Try 4 Interactive Labs</button>
+              <button class="btn-primary" onclick="goPage('labs')">🕹️ Try Interactive Labs</button>
               <button class="btn-primary" style="background: var(--blue);" onclick="goPage('enquiry')">📋 Fill Enquiry Form</button>
               <a class="btn-wa" href="https://wa.me/919391362323?text=Hello%20Hari%20Pavan,%20I%20visited%20PixelActuate%20Hub%20and%20want%20to%20enquire." target="_blank">💬 WhatsApp: +91 93913 62323</a>
             </div>
@@ -450,7 +454,7 @@
           </div>
         </div>
 
-        <!-- SWIPEABLE SCIENTIST QUOTE CLOUDS WITH BUILT-IN SVG PORTRAITS -->
+        <!-- SWIPEABLE SCIENTIST QUOTE CLOUDS WITH REAL PORTRAIT PHOTOS -->
         <div class="sec-title">
           <h2>Voices of Discovery (Swipe or Tap to Explore)</h2>
           <p>Great pioneers across Physics, Mathematics, Robotics, and Engineering</p>
@@ -471,17 +475,17 @@
         </div>
       </section>
 
-      <!-- ==================== PAGE 2: 4 INTERACTIVE LABS ==================== -->
+      <!-- ==================== PAGE 2: INTERACTIVE LABS ==================== -->
       <section id="page-labs" class="page-section">
         <div class="sec-title">
-          <h2>4 Interactive Engineering &amp; STEM Labs</h2>
+          <h2>Interactive Engineering &amp; STEM Labs</h2>
           <p>Control a 2-axis robotic arm with a joystick, launch projectiles, flip circuits, and trigger sensors</p>
         </div>
 
         <!-- LAB 1: INTERACTIVE JOYSTICK ROBOTIC ARM PICK & PLACE -->
         <div class="lab-box">
           <h3>1. Industrial Robotics Lab — Joystick Pick-and-Place Robotic Arm</h3>
-          <p style="font-size:0.9rem; color:var(--slate);">Drag the joystick (or use Arrow keys) to move the robotic gripper over the green crate, click <strong>GRAB</strong>, move it to the orange <strong>DROP ZONE</strong>, and click <strong>RELEASE</strong> to score!</p>
+          <p style="font-size:0.9rem; color:var(--slate);">Drag the joystick to move the robotic gripper over the green crate, click <strong>GRAB</strong>, move it to the orange <strong>DROP ZONE</strong>, and click <strong>RELEASE</strong> to score!</p>
           <div class="lab-grid">
             <div>
               <div class="joy-wrap">
@@ -497,24 +501,19 @@
             </div>
             <div class="lab-screen">
               <svg width="290" height="165" viewBox="0 0 290 165">
-                <!-- Floor & Target Zone -->
                 <rect x="10" y="142" width="270" height="12" rx="3" fill="#334155"/>
                 <rect x="200" y="134" width="62" height="8" rx="2" fill="#f59e0b"/>
                 <text x="231" y="128" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">DROP ZONE</text>
-                <!-- Arm Base -->
                 <rect x="28" y="120" width="38" height="22" rx="4" fill="#38bdf8"/>
-                <!-- Dynamic Arm Links -->
                 <line id="armLink1" x1="47" y1="120" x2="105" y2="70" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
                 <line id="armLink2" x1="105" y1="70" x2="135" y2="95" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
                 <circle cx="47" cy="120" r="6" fill="#f59e0b"/>
                 <circle id="elbowJoint" cx="105" cy="70" r="6" fill="#f59e0b"/>
-                <!-- Gripper Head -->
                 <g id="gripperHead" transform="translate(135, 95)">
                   <rect x="-10" y="-4" width="20" height="8" rx="3" fill="#f59e0b"/>
                   <line id="clawL" x1="-8" y1="4" x2="-12" y2="15" stroke="#38bdf8" stroke-width="3"/>
                   <line id="clawR" x1="8" y1="4" x2="12" y2="15" stroke="#38bdf8" stroke-width="3"/>
                 </g>
-                <!-- Payload Crate -->
                 <rect id="payloadBox" x="85" y="122" width="20" height="20" rx="3" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
               </svg>
             </div>
@@ -840,33 +839,38 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* 3. SWIPEABLE SCIENTIST QUOTE CLOUDS WITH BUILT-IN SVG PORTRAITS */
+    /* 3. SWIPEABLE SCIENTIST QUOTE CLOUDS (READS FROM scientists/ FOLDER) */
     const scientists = [
       {
         name: 'Nikola Tesla — Pioneer of Alternating Current & Electromagnetism',
         quote: '“The present is theirs; the future, for which I really worked, is mine.” — True understanding begins when students build and test real electrical circuits.',
-        svg: `<svg viewBox="0 0 100 100" width="92" height="92"><circle cx="50" cy="50" r="46" fill="#1e293b"/><circle cx="50" cy="38" r="16" fill="#fde68a"/><path d="M34 32 Q50 18 66 32" fill="#0f172a"/><rect x="44" y="42" width="12" height="3" rx="1" fill="#0f172a"/><path d="M26 86 Q50 62 74 86" fill="#38bdf8"/><text x="50" y="95" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">TESLA • AC</text></svg>`
+        img: 'scientists/tesla.jpg',
+        fallback: 'TESLA'
       },
       {
         name: 'Srinivasa Ramanujan — Mathematical Genius',
         quote: '“An equation means nothing to me unless it expresses a thought of God.” — We train students to see beauty and logic inside every algebraic and geometric pattern.',
-        svg: `<svg viewBox="0 0 100 100" width="92" height="92"><circle cx="50" cy="50" r="46" fill="#1e293b"/><circle cx="50" cy="39" r="16" fill="#fcd34d"/><path d="M34 33 Q50 17 66 33" fill="#0f172a"/><circle cx="50" cy="31" r="2" fill="#ef4444"/><path d="M26 86 Q50 62 74 86" fill="#f59e0b"/><text x="50" y="95" fill="#38bdf8" font-size="9" font-family="monospace" text-anchor="middle">RAMANUJAN</text></svg>`
+        img: 'scientists/ramanujan.jpg',
+        fallback: 'RAMANUJAN'
       },
       {
         name: 'Dr. A.P.J. Abdul Kalam — Aerospace Scientist & People’s President',
         quote: '“Dream, dream, dream. Dreams transform into thoughts and thoughts result in action.” — Hands-on science empowers young innovators to build for the nation.',
-        svg: `<svg viewBox="0 0 100 100" width="92" height="92"><circle cx="50" cy="50" r="46" fill="#1e293b"/><circle cx="50" cy="39" r="16" fill="#fde68a"/><path d="M31 36 Q32 18 50 18 Q68 18 69 36" fill="#cbd5e1"/><path d="M26 86 Q50 62 74 86" fill="#22c55e"/><text x="50" y="95" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">DR. KALAM</text></svg>`
+        img: 'scientists/kalam.jpg',
+        fallback: 'DR. KALAM'
       },
       {
         name: 'Joseph Engelberger — Father of Industrial Robotics',
         quote: '“If you can automate repetitive tasks with intelligence, you free human minds to invent.” — Students learn the core Sense–Compute–Actuate robotics loop.',
-        svg: `<svg viewBox="0 0 100 100" width="92" height="92"><circle cx="50" cy="50" r="46" fill="#1e293b"/><circle cx="50" cy="39" r="16" fill="#fde68a"/><rect x="38" y="34" width="10" height="7" rx="2" fill="none" stroke="#38bdf8" stroke-width="2"/><rect x="52" y="34" width="10" height="7" rx="2" fill="none" stroke="#38bdf8" stroke-width="2"/><path d="M26 86 Q50 62 74 86" fill="#a855f7"/><text x="50" y="95" fill="#4ade80" font-size="9" font-family="monospace" text-anchor="middle">ROBOTICS</text></svg>`
+        img: 'scientists/engelberger.jpg',
+        fallback: 'ROBOTICS'
       }
     ];
     let qIdx = 0;
     function renderQuote() {
       const s = scientists[qIdx];
-      document.getElementById('sciAvatar').innerHTML = s.svg;
+      document.getElementById('sciAvatar').innerHTML =
+        `<img src="${s.img}" alt="${s.name}" onerror="this.outerHTML='<span style=\\'color:#fbbf24;font-family:monospace;font-weight:bold;font-size:0.8rem;\\'>${s.fallback}</span>'" />`;
       document.getElementById('sciQuote').innerText = s.quote;
       document.getElementById('sciName').innerText = s.name;
       const dots = document.getElementById('quoteDots');
