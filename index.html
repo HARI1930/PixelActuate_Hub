@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PixelActuate Hub | Robotics, Automation, Physics & Math Lab (Class 6–10)</title>
-  <meta name="description" content="PixelActuate Hub — Concepts in Motion. Pixel-detailed training from basics at a pixel-small cost. School Robotics Bootcamps, Industrial Automation, Physics & Math Tuitions in Hyderabad." />
+  <meta name="description" content="PixelActuate Hub — Concepts in Motion. Precision-engineered Robotics, Industrial Automation, Physics & Math mentorship for Class 6–10 students in Hyderabad." />
   <meta name="keywords" content="PixelActuate Hub, Year-End Young Innovators Robotics Bootcamp, Hari Pavan P, School robotics Hyderabad, Physics Math tuition Class 6 to 10, Arduino Automation" />
   <meta name="author" content="Hari Pavan P" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:title" content="PixelActuate Hub | Concepts in Motion — Robotics & Automation Lab" />
-  <meta property="og:description" content="Pixel-detailed STEM, Robotics & Industrial Automation training for Class 6–10 students. Zero school lab setup cost." />
+  <meta property="og:description" content="Precision-engineered STEM, Robotics & Industrial Automation training for Class 6–10 students. Zero school lab setup cost." />
   <meta property="og:image" content="https://hari1930.github.io/PixelActuate_Hub/logo.jpg" />
   <meta property="og:url" content="https://hari1930.github.io/PixelActuate_Hub/" />
   <meta property="og:type" content="website" />
@@ -37,11 +37,42 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
     body { background: var(--bg); color: var(--navy); line-height: 1.6; overflow-x: hidden; }
 
-    /* VISIBLE FLOATING FORMULAS CANVAS (LIGHT THEME CONTRAST) */
-    #formulaCanvas {
-      position: fixed; inset: 0; width: 100%; height: 100%;
-      z-index: 0; pointer-events: none;
+    /* ORBITING SOLAR-SYSTEM FORMULAS LAYER (INTERACTIVE ON HOVER / TOUCH) */
+    #orbitLayer {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      pointer-events: none;
+      overflow: hidden;
     }
+    .orbit-pill {
+      position: absolute;
+      pointer-events: auto;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 0.24rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1.5px solid rgba(2, 132, 199, 0.45);
+      color: #0369a1;
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.14);
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .orbit-pill.phys { border-color: rgba(217, 119, 6, 0.5); color: #b45309; }
+    .orbit-pill.robo { border-color: rgba(22, 163, 74, 0.5); color: #15803d; }
+    .orbit-pill:hover, .orbit-pill.glow {
+      transform: scale(1.28) !important;
+      background: #0f172a;
+      color: #38bdf8;
+      border-color: #f59e0b;
+      box-shadow: 0 0 18px rgba(245, 158, 11, 0.75), 0 0 32px rgba(56, 189, 248, 0.55);
+      z-index: 99;
+    }
+
     .app-wrap { position: relative; z-index: 2; }
 
     /* TOP BAR WITH LEFT HAMBURGER */
@@ -65,8 +96,8 @@
       box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
     }
     .brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--navy); }
-    .brand img { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--amber); object-fit: cover; }
-    .brand-title strong { display: block; font-size: 1.08rem; line-height: 1.1; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
+    .brand-title strong { display: block; font-size: 1.08rem; line-height: 1.1; font-weight: 800; }
     .brand-title span { font-size: 0.7rem; font-family: var(--mono); color: var(--amber-dark); font-weight: 700; text-transform: uppercase; }
 
     .desktop-nav { display: flex; gap: 0.4rem; flex-wrap: wrap; }
@@ -78,13 +109,13 @@
     .nav-pill:hover { border-color: var(--blue); color: var(--blue); }
     .nav-pill.active { background: var(--navy); color: #fff; border-color: var(--navy); }
 
-    /* LEFT SLIDE-OUT DRAWER */
+    /* LEFT SLIDE-OUT ENGINEERING DASHBOARD */
     .drawer-backdrop {
       position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45);
       z-index: 200; display: none;
     }
     .drawer {
-      position: fixed; top: 0; left: -290px; width: 275px; height: 100%;
+      position: fixed; top: 0; left: -290px; width: 280px; height: 100%;
       background: var(--navy); color: #fff; z-index: 210;
       padding: 1.25rem; transition: left 0.25s ease;
       display: flex; flex-direction: column; justify-content: space-between;
@@ -100,7 +131,7 @@
     .drawer-btn.active { background: var(--amber); color: var(--navy); border-color: var(--amber); font-weight: 800; }
 
     /* PAGES */
-    .container { max-width: 1160px; margin: 0 auto; padding: 1.5rem 1.15rem 3rem; }
+    .container { max-width: 1160px; margin: 0 auto; padding: 1.5rem 1.15rem 2.5rem; }
     .page-section { display: none; animation: fadeIn 0.25s ease; }
     .page-section.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
@@ -110,7 +141,7 @@
       background: var(--surface); border: 1px solid var(--border);
       border-top: 5px solid var(--amber); border-radius: 18px;
       padding: 2rem 1.75rem; box-shadow: var(--shadow);
-      display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 1.75rem; align-items: center;
+      display: grid; grid-template-columns: 1.28fr 0.72fr; gap: 1.75rem; align-items: center;
       margin-bottom: 1.75rem;
     }
     .tag-live {
@@ -118,14 +149,14 @@
       background: #dcfce7; color: #15803d; font-family: var(--mono);
       font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 999px; margin-bottom: 0.8rem;
     }
-    .hero h1 { font-size: 2.15rem; line-height: 1.2; margin-bottom: 0.65rem; color: var(--navy); }
+    .hero h1 { font-size: 2.1rem; line-height: 1.22; margin-bottom: 0.75rem; color: var(--navy); font-weight: 800; }
     .hero h1 span { color: var(--blue); }
     .tagline-box {
       background: var(--amber-bg); border-left: 4px solid var(--amber);
-      padding: 0.6rem 0.9rem; border-radius: 6px; font-weight: 700;
-      color: #92400e; font-size: 0.95rem; margin-bottom: 0.9rem;
+      padding: 0.65rem 0.95rem; border-radius: 6px; font-weight: 600;
+      color: #92400e; font-size: 0.94rem; margin-bottom: 0.95rem;
     }
-    .hero p { color: var(--slate); font-size: 0.98rem; margin-bottom: 1.25rem; }
+    .hero p { color: var(--slate); font-size: 0.98rem; margin-bottom: 1.25rem; font-weight: 400; }
     .cta-group { display: flex; flex-wrap: wrap; gap: 0.7rem; }
     .btn-primary {
       background: var(--navy); color: #fff; font-weight: 700;
@@ -136,6 +167,22 @@
       background: var(--green); color: #fff; font-weight: 700;
       padding: 0.75rem 1.25rem; border-radius: 10px; text-decoration: none;
       font-size: 0.92rem; display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+
+    /* CLEAN LOGO CARD (NO CIRCLE BORDER) */
+    .logo-showcase {
+      text-align: center;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem;
+    }
+    .logo-showcase img {
+      width: 170px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 0.85rem;
     }
 
     /* AUTOMATED CONVEYOR BELT HEADER BANNER */
@@ -160,7 +207,7 @@
 
     /* CARDS & GRIDS */
     .sec-title { margin-bottom: 1.15rem; border-left: 5px solid var(--blue); padding-left: 0.85rem; }
-    .sec-title h2 { font-size: 1.45rem; color: var(--navy); }
+    .sec-title h2 { font-size: 1.45rem; color: var(--navy); font-weight: 800; }
     .sec-title p { color: var(--muted); font-size: 0.92rem; }
 
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.15rem; margin-bottom: 1.75rem; }
@@ -170,23 +217,22 @@
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 14px; padding: 1.35rem; box-shadow: var(--shadow);
     }
-    .card h3 { color: var(--blue); font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .card h3 { color: var(--blue); font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 700; }
     .card p, .card li { color: var(--slate); font-size: 0.93rem; }
     .card ul { padding-left: 1.2rem; margin-top: 0.45rem; }
     .card li { margin-bottom: 0.3rem; }
 
-    /* SWIPEABLE SCIENTIST QUOTE CLOUDS */
+    /* SWIPEABLE SCIENTIST QUOTE CLOUDS WITH BUILT-IN SVG PORTRAITS */
     .quote-carousel {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow);
       margin-bottom: 1.75rem; touch-action: pan-y;
     }
-    .quote-stage {
-      display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
-    }
-    .sci-avatar {
-      width: 92px; height: 92px; border-radius: 50%; border: 3px solid var(--amber);
-      object-fit: cover; background: #e2e8f0; flex-shrink: 0;
+    .quote-stage { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .sci-portrait-box {
+      width: 96px; height: 96px; border-radius: 16px; border: 2px solid var(--amber);
+      background: #0f172a; flex-shrink: 0; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
     }
     .speech-cloud {
       flex: 1; min-width: 240px; background: var(--blue-bg); border: 2px solid #7dd3fc;
@@ -194,9 +240,7 @@
     }
     .speech-cloud p { font-size: 0.98rem; color: var(--navy); font-style: italic; margin-bottom: 0.45rem; }
     .speech-cloud strong { color: var(--blue); font-size: 0.9rem; }
-    .carousel-controls {
-      display: flex; align-items: center; justify-content: space-between; margin-top: 1rem;
-    }
+    .carousel-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; }
     .c-btn {
       background: var(--navy); color: #fff; border: none; padding: 0.45rem 0.9rem;
       border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.85rem;
@@ -219,20 +263,35 @@
     .ctrl label { display: block; font-family: var(--mono); font-size: 0.85rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
     input[type="range"] { width: 100%; accent-color: var(--blue); cursor: pointer; }
     .telemetry {
-      font-family: var(--mono); font-size: 0.85rem; font-weight: 700;
+      font-family: var(--mono); font-size: 0.84rem; font-weight: 700;
       background: #f1f5f9; border: 1px solid var(--border); color: var(--navy);
       padding: 0.55rem 0.85rem; border-radius: 8px;
     }
     .action-btn {
-      padding: 0.5rem 1rem; border-radius: 8px; border: none; font-weight: 700;
+      padding: 0.55rem 1rem; border-radius: 8px; border: none; font-weight: 700;
       cursor: pointer; font-family: var(--mono); margin-right: 0.4rem; margin-bottom: 0.6rem;
+    }
+
+    /* VIRTUAL JOYSTICK PAD */
+    .joy-wrap { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .joy-base {
+      width: 112px; height: 112px; border-radius: 50%;
+      background: radial-gradient(circle, #1e293b 35%, #0f172a 100%);
+      border: 3px solid var(--amber); position: relative; touch-action: none; cursor: grab;
+      box-shadow: inset 0 0 14px rgba(0,0,0,0.6);
+    }
+    .joy-stick {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fbbf24, #d97706);
+      border: 2px solid #fff; position: absolute; top: 32px; left: 32px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.45); pointer-events: none;
     }
 
     /* DEVELOPMENTS BLUEPRINT CARDS */
     .dev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.15rem; }
     .dev-card {
       background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-      padding: 1.25rem; box-shadow: var(--shadow); position: relative; overflow: hidden;
+      padding: 1.25rem; box-shadow: var(--shadow);
     }
     .dev-badge {
       display: inline-block; background: var(--amber-bg); color: #92400e;
@@ -248,6 +307,21 @@
       border-radius: 14px; padding: 1rem; box-shadow: var(--shadow);
     }
     .form-wrap iframe { width: 100%; height: 760px; border: none; border-radius: 8px; }
+
+    /* INSTITUTIONAL GOAL / VISION / MISSION BAND ABOVE FOOTER */
+    .gvm-band {
+      background: #ffffff;
+      border-top: 2px solid var(--border);
+      padding: 2.25rem 1.25rem;
+    }
+    .gvm-inner { max-width: 1160px; margin: 0 auto; }
+    .gvm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.15rem; margin-top: 1rem; }
+    .gvm-card {
+      background: #f8fafc; border: 1px solid var(--border); border-top: 4px solid var(--blue);
+      border-radius: 12px; padding: 1.2rem;
+    }
+    .gvm-card h4 { color: var(--navy); font-size: 1.05rem; margin-bottom: 0.4rem; font-weight: 800; }
+    .gvm-card p { color: var(--slate); font-size: 0.9rem; }
 
     /* PIXELBOT WIDGET */
     .bot-fab {
@@ -283,20 +357,20 @@
 </head>
 <body>
 
-  <!-- HIGH-CONTRAST FLOATING FORMULAS & ENGINEERING KEYWORDS -->
-  <canvas id="formulaCanvas"></canvas>
+  <!-- SOLAR-SYSTEM ORBITING FORMULAS (5 MATH + 5 PHYSICS + 5 ROBOTICS) -->
+  <div id="orbitLayer"></div>
 
-  <!-- LEFT DRAWER MENU -->
+  <!-- LEFT SLIDE-OUT ENGINEERING DASHBOARD -->
   <div class="drawer-backdrop" id="drawerBackdrop" onclick="toggleDrawer(false)"></div>
   <aside class="drawer" id="sideDrawer">
     <div>
       <div class="drawer-head">
-        <strong style="color: var(--amber);">⚙️ PixelActuate Menu</strong>
+        <strong style="color: var(--amber); font-family: var(--mono);">⚙️ Engineering Dashboard</strong>
         <button onclick="toggleDrawer(false)" style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;">✕</button>
       </div>
       <div class="drawer-links">
-        <button class="drawer-btn active" data-page="home" onclick="goPage('home')">🏠 Home &amp; Mission</button>
-        <button class="drawer-btn" data-page="labs" onclick="goPage('labs')">🔬 4 Interactive Labs</button>
+        <button class="drawer-btn active" data-page="home" onclick="goPage('home')">🏠 Overview &amp; Highlights</button>
+        <button class="drawer-btn" data-page="labs" onclick="goPage('labs')">🕹️ 4 Interactive Labs</button>
         <button class="drawer-btn" data-page="bootcamp" onclick="goPage('bootcamp')">🤖 Year-End Bootcamp</button>
         <button class="drawer-btn" data-page="developments" onclick="goPage('developments')">🛠️ Our Developments</button>
         <button class="drawer-btn" data-page="enquiry" onclick="goPage('enquiry')">📋 Enquiry &amp; Founder</button>
@@ -312,7 +386,7 @@
     <header class="topbar">
       <div class="topbar-inner">
         <div class="left-cluster">
-          <button class="menu-btn" onclick="toggleDrawer(true)" aria-label="Open Navigation Menu">☰</button>
+          <button class="menu-btn" onclick="toggleDrawer(true)" aria-label="Open Engineering Dashboard">☰</button>
           <a href="#home" class="brand" onclick="goPage('home'); return false;">
             <img src="logo.jpg" alt="PixelActuate Hub Logo" onerror="this.style.display='none'" />
             <div class="brand-title">
@@ -323,7 +397,7 @@
         </div>
 
         <nav class="desktop-nav">
-          <button class="nav-pill active" data-page="home" onclick="goPage('home')">Home</button>
+          <button class="nav-pill active" data-page="home" onclick="goPage('home')">Overview</button>
           <button class="nav-pill" data-page="labs" onclick="goPage('labs')">4 Interactive Labs</button>
           <button class="nav-pill" data-page="bootcamp" onclick="goPage('bootcamp')">Year-End Bootcamp</button>
           <button class="nav-pill" data-page="developments" onclick="goPage('developments')">Developments</button>
@@ -334,30 +408,31 @@
 
     <main class="container">
 
-      <!-- ==================== PAGE 1: HOME (EXCLUSIVE CONTENT) ==================== -->
+      <!-- ==================== PAGE 1: OVERVIEW (EXCLUSIVE CONTENT) ==================== -->
       <section id="page-home" class="page-section active">
         <div class="hero">
           <div>
             <span class="tag-live">● ENROLLING: YEAR-END YOUNG INNOVATORS BOOTCAMP</span>
             <h1>Hands-On <span>Robotics, Automation, Physics &amp; Math</span> for Young Minds</h1>
             <div class="tagline-box">
-              Why "PixelActuate"? Because we deliver pixel-detailed training from the basics at a pixel-small cost.
+              Precision-engineered STEM education: building deep conceptual clarity from the ground up at a fraction of conventional EdTech costs.
             </div>
             <p>
-              Founded by <strong>Hari Pavan P</strong> (Automotive ADAS &amp; Embedded Systems Developer), <strong>PixelActuate Hub</strong> empowers Class 6–10 students to understand how the modern automated world works—building real sensor-driven robots and mastering Physics &amp; Math at a fraction of typical EdTech fees.
+              Founded by Hari Pavan P (Automotive ADAS &amp; Embedded Systems Developer), PixelActuate Hub empowers Class 6–10 students to understand how the modern automated world works—building real sensor-driven robots and mastering Physics and Mathematics through practical experimentation.
             </p>
             <div class="cta-group">
-              <button class="btn-primary" onclick="goPage('labs')">🔬 Try 4 Interactive Labs</button>
+              <button class="btn-primary" onclick="goPage('labs')">🕹️ Try 4 Interactive Labs</button>
               <button class="btn-primary" style="background: var(--blue);" onclick="goPage('enquiry')">📋 Fill Enquiry Form</button>
               <a class="btn-wa" href="https://wa.me/919391362323?text=Hello%20Hari%20Pavan,%20I%20visited%20PixelActuate%20Hub%20and%20want%20to%20enquire." target="_blank">💬 WhatsApp: +91 93913 62323</a>
             </div>
           </div>
 
-          <div style="text-align: center; background: #f8fafc; border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem;">
-            <img src="logo.jpg" alt="PixelActuate Hub Emblem" style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--amber); margin-bottom: 0.75rem;" onerror="this.style.display='none'" />
+          <!-- CLEAN LOGO WITHOUT CIRCULAR BORDER -->
+          <div class="logo-showcase">
+            <img src="logo.jpg" alt="PixelActuate Hub Official Emblem" onerror="this.style.display='none'" />
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-              <div style="background:#fff; padding:0.5rem; border-radius:8px; border:1px solid var(--border);"><strong style="color:var(--blue); font-family:var(--mono);">₹0 Cost</strong><div style="font-size:0.75rem; color:var(--muted);">School Lab Setup</div></div>
-              <div style="background:#fff; padding:0.5rem; border-radius:8px; border:1px solid var(--border);"><strong style="color:var(--amber-dark); font-family:var(--mono);">Class 6–10</strong><div style="font-size:0.75rem; color:var(--muted);">CBSE / ICSE / State</div></div>
+              <div style="background:#f8fafc; padding:0.55rem; border-radius:8px; border:1px solid var(--border);"><strong style="color:var(--blue); font-family:var(--mono);">₹0 Cost</strong><div style="font-size:0.75rem; color:var(--muted);">School Lab Setup</div></div>
+              <div style="background:#f8fafc; padding:0.55rem; border-radius:8px; border:1px solid var(--border);"><strong style="color:var(--amber-dark); font-family:var(--mono);">Class 6–10</strong><div style="font-size:0.75rem; color:var(--muted);">CBSE / ICSE / State</div></div>
             </div>
           </div>
         </div>
@@ -375,34 +450,14 @@
           </div>
         </div>
 
-        <!-- GOAL, MOTIVE & CORE PRINCIPLES -->
+        <!-- SWIPEABLE SCIENTIST QUOTE CLOUDS WITH BUILT-IN SVG PORTRAITS -->
         <div class="sec-title">
-          <h2>Our Goal, Motive &amp; Core Principles</h2>
-          <p>Why we are building an accessible robotics &amp; science movement for schools and families</p>
-        </div>
-        <div class="grid-3">
-          <div class="card">
-            <h3>🎯 Our Core Goal</h3>
-            <p>To help every school student understand how modern futuristic technologies—Robotics, Industrial Automation, ADAS, and IoT—actually work behind the scenes, at minimal cost compared to expensive corporate EdTech courses.</p>
-          </div>
-          <div class="card">
-            <h3>🚀 Our Motive</h3>
-            <p>Automation and intelligent machines are the future. Children shouldn't just memorize definitions from textbooks—they must wire circuits, calibrate sensors, and build working prototypes with their own hands.</p>
-          </div>
-          <div class="card">
-            <h3>🔬 Pixel-Detailed Basics</h3>
-            <p>We break complex engineering into crystal-clear, step-by-step building blocks—connecting Class 6–10 Physics and Mathematics directly to microcontrollers, motors, and real-world problem solving.</p>
-          </div>
-        </div>
-
-        <!-- SWIPEABLE SCIENTIST QUOTE CLOUDS -->
-        <div class="sec-title">
-          <h2>Voices of Discovery (Swipe to Explore)</h2>
-          <p>Great minds across Physics, Mathematics, Robotics, and Engineering</p>
+          <h2>Voices of Discovery (Swipe or Tap to Explore)</h2>
+          <p>Great pioneers across Physics, Mathematics, Robotics, and Engineering</p>
         </div>
         <div class="quote-carousel" id="quoteBox">
           <div class="quote-stage">
-            <img id="sciImg" class="sci-avatar" src="" alt="Scientist Portrait" />
+            <div id="sciAvatar" class="sci-portrait-box"></div>
             <div class="speech-cloud">
               <p id="sciQuote"></p>
               <strong id="sciName"></strong>
@@ -420,38 +475,47 @@
       <section id="page-labs" class="page-section">
         <div class="sec-title">
           <h2>4 Interactive Engineering &amp; STEM Labs</h2>
-          <p>Play with live simulations of Industrial Automation, Projectile Math, Electrical Circuits, and Robotics</p>
+          <p>Control a 2-axis robotic arm with a joystick, launch projectiles, flip circuits, and trigger sensors</p>
         </div>
 
-        <!-- LAB 1: INDUSTRIAL AUTOMATION CONVEYOR & ROBOTIC ARM -->
+        <!-- LAB 1: INTERACTIVE JOYSTICK ROBOTIC ARM PICK & PLACE -->
         <div class="lab-box">
-          <h3>1. Industrial Automation Lab — Conveyor Belt &amp; Robotic Sorting Arm</h3>
-          <p style="font-size:0.9rem; color:var(--slate);">Start the factory conveyor belt, adjust belt speed, and watch the robotic arm pick and sort packages automatically.</p>
+          <h3>1. Industrial Robotics Lab — Joystick Pick-and-Place Robotic Arm</h3>
+          <p style="font-size:0.9rem; color:var(--slate);">Drag the joystick (or use Arrow keys) to move the robotic gripper over the green crate, click <strong>GRAB</strong>, move it to the orange <strong>DROP ZONE</strong>, and click <strong>RELEASE</strong> to score!</p>
           <div class="lab-grid">
             <div>
-              <button id="beltBtn" class="action-btn" style="background: var(--green); color: #fff;" onclick="toggleBelt()">▶ START CONVEYOR</button>
-              <div class="ctrl">
-                <label>Belt Motor Speed: <span id="beltSpdTxt" style="color:var(--blue);">1x</span></label>
-                <input type="range" id="beltSpd" min="1" max="3" value="1" oninput="document.getElementById('beltSpdTxt').innerText=this.value+'x'" />
+              <div class="joy-wrap">
+                <div class="joy-base" id="joyBase">
+                  <div class="joy-stick" id="joyStick"></div>
+                </div>
+                <div>
+                  <button class="action-btn" style="background: var(--blue); color: #fff; display:block; width:145px;" onclick="toggleGripper()" id="gripBtn">🤏 GRAB CRATE</button>
+                  <button class="action-btn" style="background: var(--slate); color: #fff; display:block; width:145px;" onclick="resetArmGame()">↺ RESET ARM</button>
+                </div>
               </div>
-              <div class="telemetry" id="beltReadout">BELT: STOPPED | PACKAGES SORTED: 0</div>
+              <div class="telemetry" id="armTelemetry">GRIPPER: OPEN | CRATES DELIVERED: 0</div>
             </div>
             <div class="lab-screen">
-              <svg width="280" height="145" viewBox="0 0 280 145">
-                <!-- Robotic Arm Base -->
-                <rect x="195" y="105" width="46" height="18" rx="4" fill="#f59e0b"/>
-                <g id="roboArm" transform="rotate(0 218 105)">
-                  <rect x="213" y="45" width="10" height="60" rx="4" fill="#38bdf8"/>
-                  <circle cx="218" cy="45" r="7" fill="#f59e0b"/>
-                  <rect x="175" y="40" width="45" height="8" rx="4" fill="#e2e8f0"/>
+              <svg width="290" height="165" viewBox="0 0 290 165">
+                <!-- Floor & Target Zone -->
+                <rect x="10" y="142" width="270" height="12" rx="3" fill="#334155"/>
+                <rect x="200" y="134" width="62" height="8" rx="2" fill="#f59e0b"/>
+                <text x="231" y="128" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">DROP ZONE</text>
+                <!-- Arm Base -->
+                <rect x="28" y="120" width="38" height="22" rx="4" fill="#38bdf8"/>
+                <!-- Dynamic Arm Links -->
+                <line id="armLink1" x1="47" y1="120" x2="105" y2="70" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
+                <line id="armLink2" x1="105" y1="70" x2="135" y2="95" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+                <circle cx="47" cy="120" r="6" fill="#f59e0b"/>
+                <circle id="elbowJoint" cx="105" cy="70" r="6" fill="#f59e0b"/>
+                <!-- Gripper Head -->
+                <g id="gripperHead" transform="translate(135, 95)">
+                  <rect x="-10" y="-4" width="20" height="8" rx="3" fill="#f59e0b"/>
+                  <line id="clawL" x1="-8" y1="4" x2="-12" y2="15" stroke="#38bdf8" stroke-width="3"/>
+                  <line id="clawR" x1="8" y1="4" x2="12" y2="15" stroke="#38bdf8" stroke-width="3"/>
                 </g>
-                <!-- Conveyor Belt -->
-                <rect x="15" y="112" width="165" height="16" rx="8" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
-                <circle cx="25" cy="120" r="5" fill="#f59e0b"/>
-                <circle cx="170" cy="120" r="5" fill="#f59e0b"/>
-                <!-- Moving Package -->
-                <rect id="pkgBox" x="25" y="88" width="24" height="24" rx="4" fill="#22c55e"/>
-                <text x="140" y="22" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">PICK-AND-PLACE CELL</text>
+                <!-- Payload Crate -->
+                <rect id="payloadBox" x="85" y="122" width="20" height="20" rx="3" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
               </svg>
             </div>
           </div>
@@ -476,10 +540,8 @@
             <div class="lab-screen">
               <svg width="280" height="145" viewBox="0 0 280 145">
                 <line x1="15" y1="125" x2="265" y2="125" stroke="#475569" stroke-width="2"/>
-                <!-- Target Zone at x=205 -->
                 <rect x="193" y="119" width="24" height="6" rx="2" fill="#22c55e"/>
                 <text x="205" y="139" fill="#4ade80" font-size="9" font-family="monospace" text-anchor="middle">TARGET (180m)</text>
-                <!-- Parabola Path -->
                 <path id="trajPath" d="M 25 125 Q 115 20 205 125" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="4 3"/>
                 <circle id="projDot" cx="205" cy="125" r="6" fill="#38bdf8"/>
               </svg>
@@ -635,7 +697,7 @@
           <div class="card">
             <h3>👨‍💻 Hari Pavan P — Founder &amp; Lead STEM Mentor</h3>
             <p style="margin-bottom: 0.75rem;">
-              <strong>Automotive ADAS &amp; Embedded Systems Developer</strong> in the Mobility domain, passionate about bringing real-world engineering, robotics, physics, and mathematics to Class 6–10 students.
+              Automotive ADAS &amp; Embedded Systems Developer in the Mobility domain, passionate about bringing real-world engineering, robotics, physics, and mathematics to Class 6–10 students.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.85rem;">
               <a class="btn-primary" style="background: #0a66c2;" href="https://www.linkedin.com/in/pixelvtziqeo/" target="_blank">🔗 View LinkedIn Profile</a>
@@ -653,7 +715,6 @@
           </div>
         </div>
 
-        <!-- EMBEDDED GOOGLE FORM -->
         <div class="form-wrap">
           <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfMqyCJe11cvVplay5QmRNqliXJb7vz4bVzC-NEb9XRVOyGtQ/viewform?embedded=true" title="PixelActuate Hub Enquiry Form">Loading…</iframe>
         </div>
@@ -661,9 +722,33 @@
 
     </main>
 
+    <!-- INSTITUTIONAL GOAL, VISION & MISSION SECTION RIGHT ABOVE FOOTER -->
+    <section class="gvm-band">
+      <div class="gvm-inner">
+        <div class="sec-title" style="margin-bottom: 0.5rem;">
+          <h2>Goal, Vision &amp; Mission</h2>
+          <p>Our commitment to accessible, industry-grade STEM literacy for every young learner</p>
+        </div>
+        <div class="gvm-grid">
+          <div class="gvm-card">
+            <h4>🎯 Our Goal</h4>
+            <p>To demystify modern futuristic technologies—Robotics, Industrial Automation, ADAS, and IoT—for Class 6–10 students at a fraction of conventional EdTech costs.</p>
+          </div>
+          <div class="gvm-card" style="border-top-color: var(--amber);">
+            <h4>🔭 Our Vision</h4>
+            <p>To cultivate a generation of confident young builders who understand how automated machines, sensors, and equations power the modern world—not merely textbook memorizers.</p>
+          </div>
+          <div class="gvm-card" style="border-top-color: var(--green);">
+            <h4>🚀 Our Mission</h4>
+            <p>To deliver pixel-detailed, hands-on engineering mentorship through zero-infrastructure school bootcamps, weekend labs, and visual Math &amp; Physics coaching.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
       <strong>PixelActuate Hub — Concepts in Motion</strong><br />
-      Pixel-Detailed Robotics, Automation, Physics &amp; Math Training • Class 6–10<br />
+      Precision-Engineered Robotics, Automation, Physics &amp; Math Training • Class 6–10<br />
       Founder: Hari Pavan P • WhatsApp: +91 93913 62323 • pixelactuate.edtech@gmail.com
     </footer>
   </div>
@@ -687,41 +772,58 @@
   </div>
 
   <script>
-    /* 1. BRIGHT FLOATING FORMULAS & ENGINEERING KEYWORDS */
-    const canvas = document.getElementById('formulaCanvas');
-    const ctx = canvas.getContext('2d');
-    const tags = [
-      'V = I × R', 'F = m·a', 'R = (v²·sin2θ)/g', 'd = (v·t)/2', 'P = V·I',
-      'ADAS', 'IoT', 'PWM', 'ROBOTICS', 'AUTOMATION', 'SENSORS', 'EMBEDDED C', 'E = mc²'
+    /* 1. SOLAR-SYSTEM ORBITING FORMULAS (5 MATH + 5 PHYSICS + 5 ROBOTICS) */
+    const orbitLayer = document.getElementById('orbitLayer');
+    const orbitData = [
+      // 5 Math Formulas
+      { text: 'a² + b² = c²', cls: 'math', rx: 0.42, ry: 0.34, speed: 0.0022, angle: 0.0 },
+      { text: 'sin²θ + cos²θ = 1', cls: 'math', rx: 0.46, ry: 0.38, speed: 0.0019, angle: 1.2 },
+      { text: 'x = (-b ± √Δ)/2a', cls: 'math', rx: 0.38, ry: 0.42, speed: 0.0025, angle: 2.5 },
+      { text: 'A = πr²', cls: 'math', rx: 0.44, ry: 0.30, speed: 0.0021, angle: 3.8 },
+      { text: 'tanθ = sinθ/cosθ', cls: 'math', rx: 0.40, ry: 0.36, speed: 0.0023, angle: 5.0 },
+      // 5 Physics Formulas
+      { text: 'V = I × R', cls: 'phys', rx: 0.45, ry: 0.35, speed: 0.0020, angle: 0.5 },
+      { text: 'F = m × a', cls: 'phys', rx: 0.37, ry: 0.40, speed: 0.0026, angle: 1.8 },
+      { text: 'P = V × I', cls: 'phys', rx: 0.43, ry: 0.32, speed: 0.0021, angle: 3.1 },
+      { text: 'v = u + at', cls: 'phys', rx: 0.47, ry: 0.39, speed: 0.0018, angle: 4.3 },
+      { text: 'E = ½mv²', cls: 'phys', rx: 0.39, ry: 0.35, speed: 0.0024, angle: 5.6 },
+      // 5 Robotics & Automation Formulas
+      { text: 'd = (v·t) / 2', cls: 'robo', rx: 0.44, ry: 0.37, speed: 0.0022, angle: 0.9 },
+      { text: 'Duty = (Ton/T)×100%', cls: 'robo', rx: 0.48, ry: 0.41, speed: 0.0017, angle: 2.1 },
+      { text: 'ω = 2πf', cls: 'robo', rx: 0.36, ry: 0.33, speed: 0.0027, angle: 3.4 },
+      { text: 'τ = r × F', cls: 'robo', rx: 0.41, ry: 0.39, speed: 0.0020, angle: 4.7 },
+      { text: 'PWM • ADAS • IoT', cls: 'robo', rx: 0.45, ry: 0.31, speed: 0.0023, angle: 5.9 }
     ];
-    let items = [];
-    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-    window.addEventListener('resize', resize); resize();
 
-    for (let i = 0; i < 20; i++) {
-      items.push({
-        t: tags[i % tags.length],
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: -0.25 - Math.random() * 0.3,
-        size: window.innerWidth < 600 ? 12 : 14
+    const orbitEls = orbitData.map(item => {
+      const el = document.createElement('div');
+      el.className = `orbit-pill ${item.cls}`;
+      el.textContent = item.text;
+      el.paused = false;
+      el.addEventListener('mouseenter', () => { el.paused = true; el.classList.add('glow'); });
+      el.addEventListener('mouseleave', () => { el.paused = false; el.classList.remove('glow'); });
+      el.addEventListener('touchstart', () => {
+        el.paused = true; el.classList.add('glow');
+        setTimeout(() => { el.paused = false; el.classList.remove('glow'); }, 1500);
+      }, { passive: true });
+      orbitLayer.appendChild(el);
+      return { el, data: item };
+    });
+
+    function animateOrbits() {
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      orbitEls.forEach(obj => {
+        if (!obj.el.paused) {
+          obj.data.angle += obj.data.speed;
+        }
+        const x = cx + Math.cos(obj.data.angle) * (window.innerWidth * obj.data.rx) - 45;
+        const y = cy + Math.sin(obj.data.angle) * (window.innerHeight * obj.data.ry) - 14;
+        obj.el.style.transform = `translate(${x}px, ${y}px)`;
       });
+      requestAnimationFrame(animateOrbits);
     }
-    function loopCanvas() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      items.forEach(p => {
-        ctx.font = `700 ${p.size}px Consolas, monospace`;
-        ctx.fillStyle = 'rgba(2, 132, 199, 0.22)';
-        ctx.fillText(p.t, p.x, p.y);
-        p.x += p.vx; p.y += p.vy;
-        if (p.y < -20) { p.y = canvas.height + 20; p.x = Math.random() * canvas.width; }
-        if (p.x < -80) p.x = canvas.width + 40;
-        if (p.x > canvas.width + 80) p.x = -40;
-      });
-      requestAnimationFrame(loopCanvas);
-    }
-    loopCanvas();
+    animateOrbits();
 
     /* 2. NAVIGATION DRAWER & DISTINCT PAGE SWITCHING */
     function toggleDrawer(open) {
@@ -738,33 +840,33 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* 3. SWIPEABLE SCIENTIST QUOTE CLOUDS */
+    /* 3. SWIPEABLE SCIENTIST QUOTE CLOUDS WITH BUILT-IN SVG PORTRAITS */
     const scientists = [
       {
         name: 'Nikola Tesla — Pioneer of Alternating Current & Electromagnetism',
         quote: '“The present is theirs; the future, for which I really worked, is mine.” — True understanding begins when students build and test real electrical circuits.',
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tesla_circa_1890.jpeg/220px-Tesla_circa_1890.jpeg'
+        svg: `<svg viewBox="0 0 100 100" width="92" height="92"><circle cx="50" cy="50" r="46" fill="#1e293b"/><circle cx="50" cy="38" r="16" fill="#fde68a"/><path d="M34 32 Q50 18 66 32" fill="#0f172a"/><rect x="44" y="42" width="12" height="3" rx="1" fill="#0f172a"/><path d="M26 86 Q50 62 74 86" fill="#38bdf8"/><text x="50" y="95" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">TESLA • AC</text></svg>`
       },
       {
         name: 'Srinivasa Ramanujan — Mathematical Genius',
         quote: '“An equation means nothing to me unless it expresses a thought of God.” — We train students to see beauty and logic inside every algebraic and geometric pattern.',
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Srinivasa_Ramanujan_-_OPC_-_1.jpg/220px-Srinivasa_Ramanujan_-_OPC_-_1.jpg'
+        svg: `<svg viewBox="0 0 100 100" width="92" height="92"><circle cx="50" cy="50" r="46" fill="#1e293b"/><circle cx="50" cy="39" r="16" fill="#fcd34d"/><path d="M34 33 Q50 17 66 33" fill="#0f172a"/><circle cx="50" cy="31" r="2" fill="#ef4444"/><path d="M26 86 Q50 62 74 86" fill="#f59e0b"/><text x="50" y="95" fill="#38bdf8" font-size="9" font-family="monospace" text-anchor="middle">RAMANUJAN</text></svg>`
       },
       {
         name: 'Dr. A.P.J. Abdul Kalam — Aerospace Scientist & People’s President',
         quote: '“Dream, dream, dream. Dreams transform into thoughts and thoughts result in action.” — Hands-on science empowers young innovators to build for the nation.',
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/A._P._J._Abdul_Kalam.jpg/220px-A._P._J._Abdul_Kalam.jpg'
+        svg: `<svg viewBox="0 0 100 100" width="92" height="92"><circle cx="50" cy="50" r="46" fill="#1e293b"/><circle cx="50" cy="39" r="16" fill="#fde68a"/><path d="M31 36 Q32 18 50 18 Q68 18 69 36" fill="#cbd5e1"/><path d="M26 86 Q50 62 74 86" fill="#22c55e"/><text x="50" y="95" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">DR. KALAM</text></svg>`
       },
       {
         name: 'Joseph Engelberger — Father of Industrial Robotics',
         quote: '“If you can automate repetitive tasks with intelligence, you free human minds to invent.” — Students learn the core Sense–Compute–Actuate robotics loop.',
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Joseph_Engelberger.jpg/220px-Joseph_Engelberger.jpg'
+        svg: `<svg viewBox="0 0 100 100" width="92" height="92"><circle cx="50" cy="50" r="46" fill="#1e293b"/><circle cx="50" cy="39" r="16" fill="#fde68a"/><rect x="38" y="34" width="10" height="7" rx="2" fill="none" stroke="#38bdf8" stroke-width="2"/><rect x="52" y="34" width="10" height="7" rx="2" fill="none" stroke="#38bdf8" stroke-width="2"/><path d="M26 86 Q50 62 74 86" fill="#a855f7"/><text x="50" y="95" fill="#4ade80" font-size="9" font-family="monospace" text-anchor="middle">ROBOTICS</text></svg>`
       }
     ];
     let qIdx = 0;
     function renderQuote() {
       const s = scientists[qIdx];
-      document.getElementById('sciImg').src = s.img;
+      document.getElementById('sciAvatar').innerHTML = s.svg;
       document.getElementById('sciQuote').innerText = s.quote;
       document.getElementById('sciName').innerText = s.name;
       const dots = document.getElementById('quoteDots');
@@ -776,35 +878,108 @@
 
     let touchStartX = 0;
     const qBox = document.getElementById('quoteBox');
-    qBox.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+    qBox.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, { passive: true });
     qBox.addEventListener('touchend', e => {
       const dx = e.changedTouches[0].screenX - touchStartX;
       if (dx < -40) nextQuote();
       if (dx > 40) prevQuote();
     });
 
-    /* 4. LAB 1: INDUSTRIAL CONVEYOR & ROBOTIC ARM */
-    let beltRunning = false, pkgX = 25, sortedCount = 0;
-    function toggleBelt() {
-      beltRunning = !beltRunning;
-      const btn = document.getElementById('beltBtn');
-      btn.style.background = beltRunning ? '#dc2626' : '#16a34a';
-      btn.innerText = beltRunning ? '⏹ STOP CONVEYOR' : '▶ START CONVEYOR';
+    /* 4. LAB 1: JOYSTICK PICK-AND-PLACE ROBOTIC ARM */
+    let gripX = 135, gripY = 95, joyVX = 0, joyVY = 0;
+    let crateX = 85, crateY = 122, holding = false, delivered = 0;
+    const joyBase = document.getElementById('joyBase');
+    const joyStick = document.getElementById('joyStick');
+    let draggingJoy = false;
+
+    function handleJoyMove(clientX, clientY) {
+      const rect = joyBase.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      let dx = clientX - cx;
+      let dy = clientY - cy;
+      const maxR = 34;
+      const dist = Math.hypot(dx, dy);
+      if (dist > maxR) { dx = (dx / dist) * maxR; dy = (dy / dist) * maxR; }
+      joyStick.style.left = (32 + dx) + 'px';
+      joyStick.style.top = (32 + dy) + 'px';
+      joyVX = (dx / maxR) * 3.2;
+      joyVY = (dy / maxR) * 3.2;
     }
-    setInterval(() => {
-      if (!beltRunning) return;
-      const spd = parseInt(document.getElementById('beltSpd').value);
-      pkgX += spd * 2.2;
-      const arm = document.getElementById('roboArm');
-      if (pkgX >= 145) {
-        arm.setAttribute('transform', 'rotate(-32 218 105)');
-        sortedCount++;
-        pkgX = 25;
-        setTimeout(() => arm.setAttribute('transform', 'rotate(0 218 105)'), 350);
+    function resetJoyKnob() {
+      draggingJoy = false; joyVX = 0; joyVY = 0;
+      joyStick.style.left = '32px'; joyStick.style.top = '32px';
+    }
+    joyBase.addEventListener('mousedown', e => { draggingJoy = true; handleJoyMove(e.clientX, e.clientY); });
+    window.addEventListener('mousemove', e => { if (draggingJoy) handleJoyMove(e.clientX, e.clientY); });
+    window.addEventListener('mouseup', resetJoyKnob);
+    joyBase.addEventListener('touchstart', e => { draggingJoy = true; handleJoyMove(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+    window.addEventListener('touchmove', e => { if (draggingJoy) handleJoyMove(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+    window.addEventListener('touchend', resetJoyKnob);
+
+    function toggleGripper() {
+      const btn = document.getElementById('gripBtn');
+      const clawL = document.getElementById('clawL');
+      const clawR = document.getElementById('clawR');
+      if (!holding) {
+        const dist = Math.hypot(gripX - (crateX + 10), (gripY + 12) - (crateY + 10));
+        if (dist < 26) {
+          holding = true;
+          btn.innerText = '🖐️ RELEASE CRATE';
+          btn.style.background = '#f59e0b';
+          clawL.setAttribute('x2', '-7'); clawR.setAttribute('x2', '7');
+        } else {
+          document.getElementById('armTelemetry').innerText = 'MOVE CLOSER TO GREEN CRATE FIRST!';
+        }
+      } else {
+        holding = false;
+        btn.innerText = '🤏 GRAB CRATE';
+        btn.style.background = '#0284c7';
+        clawL.setAttribute('x2', '-12'); clawR.setAttribute('x2', '12');
+        crateY = 122;
+        if (crateX >= 190 && crateX <= 255) {
+          delivered++;
+          crateX = 75 + Math.random() * 55;
+        }
       }
-      document.getElementById('pkgBox').setAttribute('x', pkgX);
-      document.getElementById('beltReadout').innerText = `BELT: RUNNING (${spd}x) | PACKAGES SORTED: ${sortedCount}`;
-    }, 40);
+      updateArmTelemetry();
+    }
+
+    function resetArmGame() {
+      gripX = 135; gripY = 95; crateX = 85; crateY = 122; holding = false;
+      document.getElementById('gripBtn').innerText = '🤏 GRAB CRATE';
+      document.getElementById('gripBtn').style.background = '#0284c7';
+      updateArmTelemetry();
+    }
+
+    function updateArmTelemetry() {
+      document.getElementById('armTelemetry').innerText =
+        `GRIPPER: ${holding ? 'CLOSED (HOLDING)' : 'OPEN'} | DELIVERED: ${delivered}`;
+    }
+
+    setInterval(() => {
+      if (joyVX !== 0 || joyVY !== 0) {
+        gripX = Math.max(65, Math.min(255, gripX + joyVX));
+        gripY = Math.max(30, Math.min(122, gripY + joyVY));
+      }
+      if (holding) {
+        crateX = gripX - 10;
+        crateY = gripY + 8;
+      }
+      const elbowX = (47 + gripX) / 2 - 12;
+      const elbowY = Math.min(gripY, 120) - 32;
+      document.getElementById('armLink1').setAttribute('x2', elbowX);
+      document.getElementById('armLink1').setAttribute('y2', elbowY);
+      document.getElementById('armLink2').setAttribute('x1', elbowX);
+      document.getElementById('armLink2').setAttribute('y1', elbowY);
+      document.getElementById('armLink2').setAttribute('x2', gripX);
+      document.getElementById('armLink2').setAttribute('y2', gripY);
+      document.getElementById('elbowJoint').setAttribute('cx', elbowX);
+      document.getElementById('elbowJoint').setAttribute('cy', elbowY);
+      document.getElementById('gripperHead').setAttribute('transform', `translate(${gripX}, ${gripY})`);
+      document.getElementById('payloadBox').setAttribute('x', crateX);
+      document.getElementById('payloadBox').setAttribute('y', crateY);
+    }, 30);
 
     /* 5. LAB 2: MATH PROJECTILE SIMULATOR */
     function updateProjectile() {
@@ -893,7 +1068,7 @@
         bootcamp: ['Tell me about the Year-End Bootcamp', 'It is a 4-week hands-on Robotics & Automation sprint for Class 6–10 covering circuits, sensors, servo motors, and a Smart City finale.'],
         school: ['What does it cost a school?', '₹0 school infrastructure cost! We bring all hardware kits and issue co-signed certificates.'],
         tuition: ['Do you teach Math & Physics?', 'Yes! Weekend and online conceptual batches for Class 6–10 Math, Physics & Robotics.'],
-        form: ['How do I request a callback?', 'Tap "Enquiry & Founder" in the menu to submit our quick Google Form, or WhatsApp +91 93913 62323.']
+        form: ['How do I request a callback?', 'Tap "Enquiry & Founder" in the Engineering Dashboard to submit our quick Google Form, or WhatsApp +91 93913 62323.']
       };
       box.innerHTML += `<div class="u-msg">${data[k][0]}</div><div class="b-msg">${data[k][1]}</div>`;
       box.scrollTop = box.scrollHeight;
