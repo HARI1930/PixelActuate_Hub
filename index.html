@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PixelActuate Hub | Robotics, Automation, Physics & Math Lab (Class 6–10)</title>
   <meta name="description" content="PixelActuate Hub — Concepts in Motion. Precision-engineered Robotics, Industrial Automation, Physics & Math mentorship for Class 6–10 students in Hyderabad." />
-  <meta name="keywords" content="PixelActuate Hub, Year-End Young Innovators Robotics Bootcamp, Hari Pavan P, School robotics Hyderabad, Physics Math tuition Class 6 to 10, Arduino Automation" />
+  <meta name="keywords" content="PixelActuate Hub, Year-End Young Innovators Robotics Bootcamp, Hari Pavan P, School robotics Hyderabad, Physics Math tuition Class 6 to 10, Arduino Automation, NCERT STEM" />
   <meta name="author" content="Hari Pavan P" />
   <meta name="robots" content="index, follow" />
 
@@ -37,11 +37,11 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
     body { background: var(--bg); color: var(--navy); line-height: 1.6; overflow-x: hidden; }
 
-    /* ORBITING SOLAR-SYSTEM FORMULAS LAYER (INTERACTIVE ON HOVER / TOUCH) */
+    /* PERIMETER SOLAR-SYSTEM ORBITING FORMULAS */
     #orbitLayer {
       position: fixed;
       inset: 0;
-      z-index: 50;
+      z-index: 40;
       pointer-events: none;
       overflow: hidden;
     }
@@ -49,14 +49,14 @@
       position: absolute;
       pointer-events: auto;
       font-family: var(--mono);
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       font-weight: 800;
-      padding: 0.24rem 0.6rem;
+      padding: 0.22rem 0.55rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.9);
       border: 1.5px solid rgba(2, 132, 199, 0.45);
       color: #0369a1;
-      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.14);
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.14);
       cursor: pointer;
       user-select: none;
       white-space: nowrap;
@@ -65,49 +65,53 @@
     .orbit-pill.phys { border-color: rgba(217, 119, 6, 0.5); color: #b45309; }
     .orbit-pill.robo { border-color: rgba(22, 163, 74, 0.5); color: #15803d; }
     .orbit-pill:hover, .orbit-pill.glow {
-      transform: scale(1.28) !important;
+      transform: scale(1.26) !important;
       background: #0f172a;
       color: #38bdf8;
       border-color: #f59e0b;
-      box-shadow: 0 0 18px rgba(245, 158, 11, 0.75), 0 0 32px rgba(56, 189, 248, 0.55);
+      box-shadow: 0 0 18px rgba(245, 158, 11, 0.75), 0 0 30px rgba(56, 189, 248, 0.55);
       z-index: 99;
     }
 
     .app-wrap { position: relative; z-index: 2; }
 
-    /* TOP BAR WITH LEFT HAMBURGER */
+    /* TOP BAR */
     header.topbar {
       position: sticky; top: 0; z-index: 120;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.97);
       backdrop-filter: blur(10px);
       border-bottom: 2px solid var(--amber);
       padding: 0.65rem 1rem;
       box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
     }
     .topbar-inner {
-      max-width: 1180px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 0.65rem;
     }
-    .left-cluster { display: flex; align-items: center; gap: 0.75rem; }
+    .left-cluster { display: flex; align-items: center; gap: 0.65rem; }
     .menu-btn {
       background: var(--navy); color: #fff; border: none;
-      width: 42px; height: 42px; border-radius: 10px; font-size: 1.3rem;
+      width: 40px; height: 40px; border-radius: 10px; font-size: 1.25rem;
       cursor: pointer; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
     }
-    .brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--navy); }
-    .brand img { width: 42px; height: 42px; object-fit: contain; }
-    .brand-title strong { display: block; font-size: 1.08rem; line-height: 1.1; font-weight: 800; }
-    .brand-title span { font-size: 0.7rem; font-family: var(--mono); color: var(--amber-dark); font-weight: 700; text-transform: uppercase; }
+    .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--navy); }
+    .brand img { width: 40px; height: 40px; object-fit: contain; }
+    .brand-title strong { display: block; font-size: 1.04rem; line-height: 1.1; font-weight: 800; }
+    .brand-title span { font-size: 0.68rem; font-family: var(--mono); color: var(--amber-dark); font-weight: 700; text-transform: uppercase; }
 
-    .desktop-nav { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .desktop-nav { display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center; }
     .nav-pill {
       background: #f8fafc; color: var(--slate); border: 1px solid var(--border);
-      padding: 0.42rem 0.85rem; border-radius: 8px; font-size: 0.84rem; font-weight: 600;
+      padding: 0.4rem 0.78rem; border-radius: 8px; font-size: 0.82rem; font-weight: 600;
       cursor: pointer; transition: 0.2s;
     }
     .nav-pill:hover { border-color: var(--blue); color: var(--blue); }
     .nav-pill.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .qr-trigger {
+      background: var(--amber-bg); color: #92400e; border: 1px solid var(--amber);
+      padding: 0.4rem 0.75rem; border-radius: 8px; font-size: 0.8rem; font-weight: 700;
+      cursor: pointer; font-family: var(--mono);
+    }
 
     /* LEFT SLIDE-OUT ENGINEERING DASHBOARD */
     .drawer-backdrop {
@@ -122,11 +126,11 @@
     }
     .drawer.open { left: 0; }
     .drawer-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #334155; padding-bottom: 0.85rem; margin-bottom: 1rem; }
-    .drawer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .drawer-links { display: flex; flex-direction: column; gap: 0.45rem; }
     .drawer-btn {
       background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
-      padding: 0.75rem 1rem; border-radius: 10px; text-align: left;
-      font-size: 0.94rem; font-weight: 600; cursor: pointer;
+      padding: 0.7rem 0.95rem; border-radius: 10px; text-align: left;
+      font-size: 0.92rem; font-weight: 600; cursor: pointer;
     }
     .drawer-btn.active { background: var(--amber); color: var(--navy); border-color: var(--amber); font-weight: 800; }
 
@@ -136,7 +140,7 @@
     .page-section.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* HERO (HOME ONLY) */
+    /* HERO */
     .hero {
       background: var(--surface); border: 1px solid var(--border);
       border-top: 5px solid var(--amber); border-radius: 18px;
@@ -149,7 +153,7 @@
       background: #dcfce7; color: #15803d; font-family: var(--mono);
       font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 999px; margin-bottom: 0.8rem;
     }
-    .hero h1 { font-size: 2.1rem; line-height: 1.22; margin-bottom: 0.75rem; color: var(--navy); font-weight: 800; }
+    .hero h1 { font-size: 2.08rem; line-height: 1.22; margin-bottom: 0.75rem; color: var(--navy); font-weight: 800; }
     .hero h1 span { color: var(--blue); }
     .tagline-box {
       background: var(--amber-bg); border-left: 4px solid var(--amber);
@@ -157,33 +161,23 @@
       color: #92400e; font-size: 0.94rem; margin-bottom: 0.95rem;
     }
     .hero p { color: var(--slate); font-size: 0.98rem; margin-bottom: 1.25rem; font-weight: 400; }
-    .cta-group { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .cta-group { display: flex; flex-wrap: wrap; gap: 0.65rem; }
     .btn-primary {
       background: var(--navy); color: #fff; font-weight: 700;
-      padding: 0.75rem 1.25rem; border-radius: 10px; border: none; cursor: pointer;
-      text-decoration: none; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.72rem 1.2rem; border-radius: 10px; border: none; cursor: pointer;
+      text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem;
     }
     .btn-wa {
       background: var(--green); color: #fff; font-weight: 700;
-      padding: 0.75rem 1.25rem; border-radius: 10px; text-decoration: none;
-      font-size: 0.92rem; display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.72rem 1.2rem; border-radius: 10px; text-decoration: none;
+      font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem;
     }
 
-    /* CLEAN LOGO CARD (NO CIRCLE BORDER) */
     .logo-showcase {
-      text-align: center;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.25rem;
+      text-align: center; background: #ffffff; border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.25rem;
     }
-    .logo-showcase img {
-      width: 170px;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto 0.85rem;
-    }
+    .logo-showcase img { width: 170px; height: auto; object-fit: contain; display: block; margin: 0 auto 0.85rem; }
 
     /* AUTOMATED CONVEYOR BELT HEADER BANNER */
     .automation-strip {
@@ -206,9 +200,9 @@
     @keyframes moveBelt { 0% { left: -25%; } 100% { left: 105%; } }
 
     /* CARDS & GRIDS */
-    .sec-title { margin-bottom: 1.15rem; border-left: 5px solid var(--blue); padding-left: 0.85rem; }
-    .sec-title h2 { font-size: 1.45rem; color: var(--navy); font-weight: 800; }
-    .sec-title p { color: var(--muted); font-size: 0.92rem; }
+    .sec-title { margin-bottom: 1.1rem; border-left: 5px solid var(--blue); padding-left: 0.85rem; }
+    .sec-title h2 { font-size: 1.42rem; color: var(--navy); font-weight: 800; }
+    .sec-title p { color: var(--muted); font-size: 0.9rem; }
 
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.15rem; margin-bottom: 1.75rem; }
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; margin-bottom: 1.75rem; }
@@ -217,12 +211,35 @@
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 14px; padding: 1.35rem; box-shadow: var(--shadow);
     }
-    .card h3 { color: var(--blue); font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 700; }
+    .card h3 { color: var(--blue); font-size: 1.08rem; margin-bottom: 0.5rem; font-weight: 700; }
     .card p, .card li { color: var(--slate); font-size: 0.93rem; }
     .card ul { padding-left: 1.2rem; margin-top: 0.45rem; }
     .card li { margin-bottom: 0.3rem; }
 
-    /* SWIPEABLE SCIENTIST QUOTE CLOUDS WITH REAL PORTRAIT PHOTOS */
+    /* 3-STEP SCHOOL PARTNERSHIP WORKFLOW */
+    .step-badge {
+      display: inline-block; background: var(--navy); color: var(--amber);
+      font-family: var(--mono); font-size: 0.75rem; font-weight: 800;
+      padding: 0.2rem 0.6rem; border-radius: 6px; margin-bottom: 0.5rem;
+    }
+
+    /* NCERT SYLLABUS-TO-HARDWARE MAPPER */
+    .mapper-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.4rem; box-shadow: var(--shadow); margin-bottom: 1.75rem;
+    }
+    .filter-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .f-btn {
+      background: #f8fafc; border: 1px solid var(--border); color: var(--slate);
+      padding: 0.4rem 0.85rem; border-radius: 8px; font-weight: 700; font-size: 0.83rem; cursor: pointer;
+    }
+    .f-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .map-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .map-table th { background: var(--navy); color: #fff; text-align: left; padding: 0.65rem 0.85rem; }
+    .map-table td { padding: 0.65rem 0.85rem; border-bottom: 1px solid var(--border); color: var(--slate); }
+    .map-table tr:nth-child(even) { background: #f8fafc; }
+
+    /* SWIPEABLE SCIENTIST QUOTE CLOUDS */
     .quote-carousel {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow);
@@ -233,14 +250,11 @@
       width: 104px; height: 104px; border-radius: 16px; border: 3px solid var(--amber);
       background: #0f172a; flex-shrink: 0; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.16);
     }
-    .sci-portrait-box img {
-      width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;
-    }
+    .sci-portrait-box img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
     .speech-cloud {
       flex: 1; min-width: 240px; background: var(--blue-bg); border: 2px solid #7dd3fc;
-      border-radius: 18px; padding: 1.1rem 1.3rem; position: relative;
+      border-radius: 18px; padding: 1.1rem 1.3rem;
     }
     .speech-cloud p { font-size: 0.98rem; color: var(--navy); font-style: italic; margin-bottom: 0.45rem; }
     .speech-cloud strong { color: var(--blue); font-size: 0.9rem; }
@@ -253,6 +267,14 @@
     .dot { width: 9px; height: 9px; border-radius: 50%; background: #cbd5e1; cursor: pointer; }
     .dot.active { background: var(--amber); width: 22px; border-radius: 999px; }
 
+    /* FAQ ACCORDION */
+    details.faq-item {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 0.9rem 1.15rem; margin-bottom: 0.65rem; box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+    }
+    details.faq-item summary { font-weight: 700; color: var(--navy); cursor: pointer; font-size: 0.95rem; }
+    details.faq-item p { margin-top: 0.55rem; color: var(--slate); font-size: 0.9rem; }
+
     /* INTERACTIVE LABS */
     .lab-box {
       background: var(--surface); border: 1px solid var(--border);
@@ -260,9 +282,7 @@
       padding: 1.35rem; margin-bottom: 1.35rem; box-shadow: var(--shadow);
     }
     .lab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: center; margin-top: 0.85rem; }
-    .lab-screen {
-      background: #0f172a; border-radius: 12px; padding: 0.85rem; text-align: center; color: #fff;
-    }
+    .lab-screen { background: #0f172a; border-radius: 12px; padding: 0.85rem; text-align: center; color: #fff; }
     .ctrl { margin-bottom: 0.8rem; }
     .ctrl label { display: block; font-family: var(--mono); font-size: 0.85rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
     input[type="range"] { width: 100%; accent-color: var(--blue); cursor: pointer; }
@@ -274,6 +294,17 @@
     .action-btn {
       padding: 0.55rem 1rem; border-radius: 8px; border: none; font-weight: 700;
       cursor: pointer; font-family: var(--mono); margin-right: 0.4rem; margin-bottom: 0.6rem;
+    }
+
+    /* LIVE C++ CODE INSPECTOR */
+    .code-drawer {
+      margin-top: 1rem; background: #0f172a; color: #e2e8f0; border-radius: 10px;
+      padding: 1rem; font-family: var(--mono); font-size: 0.82rem; display: none;
+    }
+    .code-drawer pre { overflow-x: auto; line-height: 1.45; }
+    .thresh-input {
+      width: 64px; background: #1e293b; color: #fbbf24; border: 1px solid #f59e0b;
+      border-radius: 4px; padding: 0.15rem 0.35rem; font-family: var(--mono); font-weight: 800;
     }
 
     /* VIRTUAL JOYSTICK PAD */
@@ -291,8 +322,35 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.45); pointer-events: none;
     }
 
+    /* CERTIFICATE LIVE PREVIEWER */
+    .cert-frame {
+      background: #fffbeb; border: 6px double #b45309; border-radius: 12px;
+      padding: 1.5rem; text-align: center; box-shadow: var(--shadow); margin-top: 1.25rem;
+    }
+    .cert-sigs {
+      display: flex; justify-content: space-around; margin-top: 1.4rem;
+      border-top: 1px dashed #d97706; padding-top: 0.65rem; font-size: 0.82rem; font-weight: 700;
+    }
+
+    /* GALLERY & LEARNING RESOURCES */
+    .photo-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      overflow: hidden; box-shadow: var(--shadow);
+    }
+    .photo-slot {
+      height: 195px; background: #0f172a; display: flex; align-items: center; justify-content: center;
+      color: #94a3b8; font-family: var(--mono); font-size: 0.8rem; text-align: center; padding: 1rem;
+    }
+    .photo-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .res-badge {
+      display: inline-block; font-family: var(--mono); font-size: 0.72rem; font-weight: 800;
+      padding: 0.18rem 0.55rem; border-radius: 6px; margin-bottom: 0.45rem;
+      background: var(--blue-bg); color: var(--blue);
+    }
+    .res-actions { display: flex; gap: 0.5rem; margin-top: 0.85rem; flex-wrap: wrap; }
+
     /* DEVELOPMENTS BLUEPRINT CARDS */
-    .dev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.15rem; }
+    .dev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.15rem; margin-bottom: 1.75rem; }
     .dev-card {
       background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
       padding: 1.25rem; box-shadow: var(--shadow);
@@ -312,12 +370,18 @@
     }
     .form-wrap iframe { width: 100%; height: 760px; border: none; border-radius: 8px; }
 
-    /* INSTITUTIONAL GOAL / VISION / MISSION BAND ABOVE FOOTER */
-    .gvm-band {
-      background: #ffffff;
-      border-top: 2px solid var(--border);
-      padding: 2.25rem 1.25rem;
+    /* QR MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(15, 23, 42, 0.65);
+      z-index: 300; display: none; align-items: center; justify-content: center; padding: 1rem;
     }
+    .modal-card {
+      background: #fff; border-radius: 16px; padding: 1.5rem; max-width: 340px; width: 100%;
+      text-align: center; border-top: 5px solid var(--amber);
+    }
+
+    /* INSTITUTIONAL GOAL / VISION / MISSION BAND ABOVE FOOTER */
+    .gvm-band { background: #ffffff; border-top: 2px solid var(--border); padding: 2.25rem 1.25rem; }
     .gvm-inner { max-width: 1160px; margin: 0 auto; }
     .gvm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.15rem; margin-top: 1rem; }
     .gvm-card {
@@ -352,7 +416,14 @@
       padding: 2rem 1rem; font-size: 0.88rem; border-top: 4px solid var(--amber);
     }
 
-    @media (max-width: 840px) {
+    @media print {
+      #orbitLayer, header.topbar, .bot-fab, .bot-box, .cta-group, .quote-carousel { display: none !important; }
+      body { background: #fff; }
+      .page-section { display: block !important; }
+      #page-labs, #page-developments, #page-resources, #page-enquiry { display: none !important; }
+    }
+
+    @media (max-width: 900px) {
       .desktop-nav { display: none; }
       .hero, .lab-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 1.65rem; }
@@ -361,8 +432,19 @@
 </head>
 <body>
 
-  <!-- SOLAR-SYSTEM ORBITING FORMULAS (5 MATH + 5 PHYSICS + 5 ROBOTICS) -->
+  <!-- PERIMETER SOLAR-SYSTEM ORBITING FORMULAS -->
   <div id="orbitLayer"></div>
+
+  <!-- QR SHARE MODAL -->
+  <div class="modal-overlay" id="qrModal" onclick="if(event.target===this)this.style.display='none'">
+    <div class="modal-card">
+      <h3 style="color:var(--navy); margin-bottom:0.35rem;">Scan to Open PixelActuate Hub</h3>
+      <p style="font-size:0.84rem; color:var(--muted); margin-bottom:0.85rem;">Share directly with School Principals, Teachers &amp; Parents</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://hari1930.github.io/PixelActuate_Hub/" alt="PixelActuate Hub QR Code" style="width:190px; height:190px; border:2px solid var(--border); border-radius:10px; padding:6px;" />
+      <div style="font-family:var(--mono); font-size:0.75rem; color:var(--blue); margin:0.65rem 0;">hari1930.github.io/PixelActuate_Hub</div>
+      <button class="btn-primary" style="width:100%; justify-content:center;" onclick="document.getElementById('qrModal').style.display='none'">Close QR</button>
+    </div>
+  </div>
 
   <!-- LEFT SLIDE-OUT ENGINEERING DASHBOARD -->
   <div class="drawer-backdrop" id="drawerBackdrop" onclick="toggleDrawer(false)"></div>
@@ -373,10 +455,11 @@
         <button onclick="toggleDrawer(false)" style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;">✕</button>
       </div>
       <div class="drawer-links">
-        <button class="drawer-btn active" data-page="home" onclick="goPage('home')">🏠 Overview &amp; Highlights</button>
-        <button class="drawer-btn" data-page="labs" onclick="goPage('labs')">🕹️ Interactive Labs</button>
+        <button class="drawer-btn active" data-page="home" onclick="goPage('home')">🏠 Overview &amp; Syllabus Map</button>
+        <button class="drawer-btn" data-page="labs" onclick="goPage('labs')">🕹️ Interactive Labs &amp; Code</button>
         <button class="drawer-btn" data-page="bootcamp" onclick="goPage('bootcamp')">🤖 Year-End Bootcamp</button>
-        <button class="drawer-btn" data-page="developments" onclick="goPage('developments')">🛠️ Our Developments</button>
+        <button class="drawer-btn" data-page="resources" onclick="goPage('resources')">📚 Learning Resources (PDFs)</button>
+        <button class="drawer-btn" data-page="developments" onclick="goPage('developments')">🛠️ Developments &amp; Gallery</button>
         <button class="drawer-btn" data-page="enquiry" onclick="goPage('enquiry')">📋 Enquiry &amp; Founder</button>
       </div>
     </div>
@@ -404,15 +487,18 @@
           <button class="nav-pill active" data-page="home" onclick="goPage('home')">Overview</button>
           <button class="nav-pill" data-page="labs" onclick="goPage('labs')">Interactive Labs</button>
           <button class="nav-pill" data-page="bootcamp" onclick="goPage('bootcamp')">Year-End Bootcamp</button>
+          <button class="nav-pill" data-page="resources" onclick="goPage('resources')">Learning Resources</button>
           <button class="nav-pill" data-page="developments" onclick="goPage('developments')">Developments</button>
           <button class="nav-pill" data-page="enquiry" onclick="goPage('enquiry')">Enquiry &amp; Founder</button>
         </nav>
+
+        <button class="qr-trigger" onclick="document.getElementById('qrModal').style.display='flex'">📱 QR Share</button>
       </div>
     </header>
 
     <main class="container">
 
-      <!-- ==================== PAGE 1: OVERVIEW (EXCLUSIVE CONTENT) ==================== -->
+      <!-- ==================== PAGE 1: OVERVIEW ==================== -->
       <section id="page-home" class="page-section active">
         <div class="hero">
           <div>
@@ -426,12 +512,12 @@
             </p>
             <div class="cta-group">
               <button class="btn-primary" onclick="goPage('labs')">🕹️ Try Interactive Labs</button>
-              <button class="btn-primary" style="background: var(--blue);" onclick="goPage('enquiry')">📋 Fill Enquiry Form</button>
+              <button class="btn-primary" style="background: var(--blue);" onclick="goPage('resources')">📚 Free Learning PDFs</button>
+              <button class="btn-primary" style="background: #475569;" onclick="window.print()">🖨️ Print 1-Page Proposal</button>
               <a class="btn-wa" href="https://wa.me/919391362323?text=Hello%20Hari%20Pavan,%20I%20visited%20PixelActuate%20Hub%20and%20want%20to%20enquire." target="_blank">💬 WhatsApp: +91 93913 62323</a>
             </div>
           </div>
 
-          <!-- CLEAN LOGO WITHOUT CIRCULAR BORDER -->
           <div class="logo-showcase">
             <img src="logo.jpg" alt="PixelActuate Hub Official Emblem" onerror="this.style.display='none'" />
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
@@ -454,7 +540,64 @@
           </div>
         </div>
 
-        <!-- SWIPEABLE SCIENTIST QUOTE CLOUDS WITH REAL PORTRAIT PHOTOS -->
+        <!-- 3-STEP SCHOOL PARTNERSHIP WORKFLOW -->
+        <div class="sec-title">
+          <h2>How a School Partnership Works (3 Simple Steps)</h2>
+          <p>Zero administrative burden and zero hardware investment for school management</p>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <span class="step-badge">STEP 01 • 10-MIN DEMO</span>
+            <h3>Live Principal Desk Demo</h3>
+            <p>We demonstrate our working Ultrasonic Smart Gate prototype directly at your desk and share the 4-week student circular for Class 6–10.</p>
+          </div>
+          <div class="card">
+            <span class="step-badge">STEP 02 • FRIDAY LOCK-IN</span>
+            <h3>Batch Formation (12–16 Students)</h3>
+            <p>Interested students register through the class teacher by Friday. We organize them into 4 hardware teams and bring all kits on Saturday.</p>
+          </div>
+          <div class="card">
+            <span class="step-badge">STEP 03 • GRADUATION</span>
+            <h3>4-Saturday Bootcamp &amp; Showcase</h3>
+            <p>Students build working robots in your existing computer lab and graduate with dual-signed certificates carrying your Principal signature &amp; school seal.</p>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE NCERT / CBSE SYLLABUS-TO-HARDWARE MAPPER -->
+        <div class="sec-title">
+          <h2>NCERT / CBSE Syllabus-to-Hardware Mapper</h2>
+          <p>Filter by class or subject to see how every robotics experiment reinforces school exam chapters</p>
+        </div>
+        <div class="mapper-box">
+          <div class="filter-row">
+            <button class="f-btn active" onclick="filterSyllabus('ALL', this)">All Classes (6–10)</button>
+            <button class="f-btn" onclick="filterSyllabus('Physics', this)">⚡ Physics Chapters</button>
+            <button class="f-btn" onclick="filterSyllabus('Math', this)">📐 Math Chapters</button>
+            <button class="f-btn" onclick="filterSyllabus('Class 8', this)">Class 8</button>
+            <button class="f-btn" onclick="filterSyllabus('Class 9-10', this)">Class 9 &amp; 10</button>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="map-table" id="syllabusTable">
+              <thead>
+                <tr>
+                  <th>Class</th>
+                  <th>Subject &amp; Chapter</th>
+                  <th>Hands-On Hardware / Code Build</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-tags="ALL Physics Class 6-7"><td><strong>Class 6–7</strong></td><td>Physics: Electricity &amp; Circuits</td><td>Breadboard LED switching, open/closed loops &amp; series/parallel current testing</td></tr>
+                <tr data-tags="ALL Math Class 6-7"><td><strong>Class 6–7</strong></td><td>Math: Angles &amp; Mensuration</td><td>Programming exact 0°–180° servo arm rotation angles &amp; perimeter path tracking</td></tr>
+                <tr data-tags="ALL Physics Class 8"><td><strong>Class 8</strong></td><td>Physics: Sound &amp; Echo Reflection</td><td>HC-SR04 Ultrasonic rangefinder measuring distance via speed of sound ($d = vt/2$)</td></tr>
+                <tr data-tags="ALL Math Class 8"><td><strong>Class 8</strong></td><td>Math: Linear Equations &amp; Ratios</td><td>Mapping analog sensor voltage (0–1023) to physical distance thresholds</td></tr>
+                <tr data-tags="ALL Physics Class 9-10"><td><strong>Class 9–10</strong></td><td>Physics: Ohm's Law &amp; Electromagnetism</td><td>Calculating resistor values ($V = IR$) and PWM duty-cycle motor speed control</td></tr>
+                <tr data-tags="ALL Math Class 9-10"><td><strong>Class 9–10</strong></td><td>Math: Trigonometry &amp; Coordinate Geometry</td><td>2-axis robotic arm kinematics and projectile trajectory range calculations</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SWIPEABLE SCIENTIST QUOTE CLOUDS -->
         <div class="sec-title">
           <h2>Voices of Discovery (Swipe or Tap to Explore)</h2>
           <p>Great pioneers across Physics, Mathematics, Robotics, and Engineering</p>
@@ -473,13 +616,35 @@
             <button class="c-btn" onclick="nextQuote()">Next →</button>
           </div>
         </div>
+
+        <!-- SMART FAQ ACCORDION -->
+        <div class="sec-title">
+          <h2>Frequently Asked Questions (Principals &amp; Parents)</h2>
+          <p>Clear answers on logistics, safety, and academic alignment</p>
+        </div>
+        <details class="faq-item">
+          <summary>1. Does the school need to purchase Arduino kits, sensors, or laptops?</summary>
+          <p>No—zero infrastructure expenditure is required. PixelActuate Hub brings all microcontrollers, breadboards, sensors, motors, and jumper kits. We only use 4 desktops in your existing computer lab for 60 minutes on Saturday.</p>
+        </details>
+        <details class="faq-item">
+          <summary>2. How does a 4-week bootcamp fit into school exam schedules?</summary>
+          <p>Sessions run for just 60 minutes on Saturdays (typically during the last period or activity slot) and conclude cleanly in 4 weeks—reinforcing Physics electricity/sound and Math logic right before exams.</p>
+        </details>
+        <details class="faq-item">
+          <summary>3. Are the electronics safe for Class 6–10 students?</summary>
+          <p>Yes, 100%. All classroom circuits operate on low-voltage 5V DC USB power with zero high-voltage AC connections and no soldering irons required.</p>
+        </details>
+        <details class="faq-item">
+          <summary>4. How can parents enroll their child for weekend Math, Physics, or Robotics tuitions?</summary>
+          <p>Visit the <strong>Enquiry &amp; Founder</strong> tab to submit our 60-second Google Form or message us directly on WhatsApp (+91 93913 62323) for batch timings.</p>
+        </details>
       </section>
 
       <!-- ==================== PAGE 2: INTERACTIVE LABS ==================== -->
       <section id="page-labs" class="page-section">
         <div class="sec-title">
           <h2>Interactive Engineering &amp; STEM Labs</h2>
-          <p>Control a 2-axis robotic arm with a joystick, launch projectiles, flip circuits, and trigger sensors</p>
+          <p>Control a 2-axis robotic arm with a joystick, launch projectiles, flip circuits, and edit live Arduino C++ code</p>
         </div>
 
         <!-- LAB 1: INTERACTIVE JOYSTICK ROBOTIC ARM PICK & PLACE -->
@@ -579,17 +744,18 @@
           </div>
         </div>
 
-        <!-- LAB 4: ROBOTICS SMART ULTRASONIC GATE -->
+        <!-- LAB 4: ROBOTICS SMART GATE + LIVE EMBEDDED C++ INSPECTOR -->
         <div class="lab-box">
-          <h3>4. Robotics Lab — Automated Ultrasonic Smart Gate</h3>
-          <p style="font-size:0.9rem; color:var(--slate);">Move the vehicle closer to the sensor (&lt; 20 cm) to trigger the servo motor barrier.</p>
+          <h3>4. Robotics Lab — Automated Ultrasonic Smart Gate &amp; Live Firmware</h3>
+          <p style="font-size:0.9rem; color:var(--slate);">Move the vehicle closer to the sensor—or click <strong>Inspect Arduino C++ Code</strong> to edit the trigger threshold live!</p>
           <div class="lab-grid">
             <div>
               <div class="ctrl">
-                <label>Sensor Distance: <span id="dTxt" style="color:var(--blue);">45 cm</span></label>
-                <input type="range" min="5" max="70" value="45" oninput="moveGate(this.value)" />
+                <label>Sensor Distance: <span id="dTxt" style="color:var(--blue);">45 cm</span> (Trigger &le; <span id="trigLbl">20</span> cm)</label>
+                <input type="range" id="gateSlider" min="5" max="70" value="45" oninput="moveGate()" />
               </div>
-              <div class="telemetry" id="gOut">GATE CLOSED (0°) • Buzzer OFF</div>
+              <div class="telemetry" id="gOut" style="margin-bottom:0.65rem;">🚧 GATE CLOSED (0°) • Buzzer OFF</div>
+              <button class="action-btn" style="background: var(--navy); color: var(--amber);" onclick="toggleCodePanel()">💻 View / Edit Embedded C++ Code</button>
             </div>
             <div class="lab-screen">
               <svg width="260" height="130" viewBox="0 0 260 130">
@@ -604,6 +770,24 @@
                 </g>
               </svg>
             </div>
+          </div>
+
+          <div class="code-drawer" id="codePanel">
+            <div style="color:#38bdf8; margin-bottom:0.4rem; font-weight:bold;">// Non-Blocking Arduino Firmware (Edit TRIGGER_CM below and test the slider!)</div>
+            <pre>#include &lt;Servo.h&gt;
+Servo gateServo;
+const int TRIGGER_CM = <input type="number" id="threshInput" class="thresh-input" value="20" min="5" max="65" oninput="updateThreshold(this.value)" />; // &lt;-- Edit threshold (5–65 cm)
+
+void loop() {
+  long distance = readUltrasonicCM(); // Pin 2 Echo
+  if (distance &lt;= TRIGGER_CM) {
+    gateServo.write(90);              // Pin 9 PWM: Instant Lift
+    digitalWrite(8, HIGH);            // Pin 8: Alert Buzzer ON
+  } else {
+    gateServo.write(0);               // Barrier Closed
+    digitalWrite(8, LOW);
+  }
+}</pre>
           </div>
         </div>
       </section>
@@ -645,9 +829,94 @@
             </div>
           </div>
         </div>
+
+        <!-- LIVE DUAL-SIGNED CERTIFICATE PREVIEWER -->
+        <div class="sec-title">
+          <h2>Live Co-Signed Student Certificate Preview</h2>
+          <p>Type a sample student name and school below to preview the graduation certificate</p>
+        </div>
+        <div class="card">
+          <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
+            <input type="text" id="certStudent" placeholder="Type Student Name (e.g., Aarav Sharma)" oninput="updateCert()" style="flex:1; min-width:210px; padding:0.55rem 0.85rem; border:1px solid var(--border); border-radius:8px;" />
+            <input type="text" id="certSchool" placeholder="Type School Name (e.g., St. Mary's High School)" oninput="updateCert()" style="flex:1; min-width:210px; padding:0.55rem 0.85rem; border:1px solid var(--border); border-radius:8px;" />
+          </div>
+
+          <div class="cert-frame">
+            <div style="font-family:var(--mono); font-size:0.78rem; color:#92400e; font-weight:800;">PIXELACTUATE HUB • APPLIED STEM INITIATIVE</div>
+            <h3 style="font-size:1.35rem; color:var(--navy); margin:0.35rem 0;">CERTIFICATE OF PRACTICAL EXCELLENCE</h3>
+            <p style="font-size:0.88rem; color:var(--slate);">This is proudly awarded to</p>
+            <div id="certStudentOut" style="font-size:1.45rem; font-weight:800; color:var(--blue); margin:0.25rem 0;">[ Student Name ]</div>
+            <p style="font-size:0.88rem; color:var(--slate);">of <strong id="certSchoolOut">[ Partner School Name ]</strong> for successfully wiring, coding, and demonstrating an <strong>Automated Ultrasonic Smart Gate</strong> in the 4-Week Young Innovators Robotics &amp; Automation Bootcamp.</p>
+            <div class="cert-sigs">
+              <div>_______________________<br/>Principal Signature &amp; School Seal</div>
+              <div>_______________________<br/>Hari Pavan P • Founder, PixelActuate Hub</div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <!-- ==================== PAGE 4: DEVELOPMENTS ==================== -->
+      <!-- ==================== PAGE 4: LEARNING RESOURCES (4 SUBJECTS) ==================== -->
+      <section id="page-resources" class="page-section">
+        <div class="sec-title">
+          <h2>Open Learning Resources (PDFs, Notes &amp; Syntax Guides)</h2>
+          <p>Free downloadable study sheets across Robotics, Physics, Coding, and Mathematics</p>
+        </div>
+
+        <div class="filter-row">
+          <button class="f-btn active" onclick="filterResources('ALL', this)">All Subjects</button>
+          <button class="f-btn" onclick="filterResources('robotics', this)">🤖 Robotics</button>
+          <button class="f-btn" onclick="filterResources('physics', this)">⚡ Physics</button>
+          <button class="f-btn" onclick="filterResources('coding', this)">💻 Coding</button>
+          <button class="f-btn" onclick="filterResources('maths', this)">📐 Mathematics</button>
+        </div>
+
+        <div class="grid-2" id="resourceGrid">
+          <!-- RESOURCE 1: ARDUINO PDF -->
+          <div class="card" data-subj="robotics">
+            <span class="res-badge">ROBOTICS • PDF GUIDE</span>
+            <h3>🔌 Arduino Uno Pinout &amp; Breadboard Foundations</h3>
+            <p>Visual beginner handbook covering digital/analog I/O pins, 5V/GND breadboard rails, ultrasonic sensors, and SG90 servo wiring.</p>
+            <div class="res-actions">
+              <a class="btn-primary" href="learning_resources/robotics/arduino_basics.pdf" target="_blank">📄 Open PDF</a>
+              <a class="btn-primary" style="background:var(--blue);" href="learning_resources/robotics/arduino_basics.pdf" download>⬇️ Download</a>
+            </div>
+          </div>
+
+          <!-- RESOURCE 2: OHM'S LAW PDF -->
+          <div class="card" data-subj="physics">
+            <span class="res-badge" style="background:var(--amber-bg); color:#92400e;">PHYSICS • LAB WORKSHEET</span>
+            <h3>⚡ Ohm's Law ($V = I \times R$) &amp; Resistor Color Code Lab</h3>
+            <p>Step-by-step circuit calculation sheet for Class 8–10 students showing how voltage, current, and resistance protect LEDs and motors.</p>
+            <div class="res-actions">
+              <a class="btn-primary" href="learning_resources/physics/ohms_law_lab.pdf" target="_blank">📄 Open PDF</a>
+              <a class="btn-primary" style="background:var(--blue);" href="learning_resources/physics/ohms_law_lab.pdf" download>⬇️ Download</a>
+            </div>
+          </div>
+
+          <!-- RESOURCE 3: CODING SYNTAX PDF -->
+          <div class="card" data-subj="coding">
+            <span class="res-badge" style="background:#dcfce7; color:#15803d;">CODING • SYNTAX CHEAT-SHEET</span>
+            <h3>💻 Basic Coding Formulas &amp; Embedded C++ Syntax</h3>
+            <p>Quick reference card for variables, <code>if/else</code> sensor conditions, <code>for/while</code> loops, functions, and PWM control syntax.</p>
+            <div class="res-actions">
+              <a class="btn-primary" href="learning_resources/coding/coding_syntax_guide.pdf" target="_blank">📄 Open PDF</a>
+              <a class="btn-primary" style="background:var(--blue);" href="learning_resources/coding/coding_syntax_guide.pdf" download>⬇️ Download</a>
+            </div>
+          </div>
+
+          <!-- RESOURCE 4: MATHEMATICS VAULT -->
+          <div class="card" data-subj="maths">
+            <span class="res-badge">MATHEMATICS • FORMULA VAULT</span>
+            <h3>📐 Class 6–10 Applied Math &amp; Trigonometry Sheets</h3>
+            <p>Visual geometry, quadratic equations, and coordinate trigonometry worksheets linked to robotics trajectories. New PDFs &amp; PPTs added regularly.</p>
+            <div class="res-actions">
+              <a class="btn-wa" href="https://wa.me/919391362323?text=Hello%20Hari%20Pavan,%20please%20share%20the%20Class%206-10%20Maths%20Formula%20Sheet%20PDF." target="_blank">💬 Request Maths PDF on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PAGE 5: DEVELOPMENTS & GALLERY ==================== -->
       <section id="page-developments" class="page-section">
         <div class="sec-title">
           <h2>Engineering Developments &amp; Hardware Milestones</h2>
@@ -683,9 +952,46 @@
             <div class="prog-bar"><div class="prog-fill" style="width: 90%;"></div></div>
           </div>
         </div>
+
+        <!-- PROJECT & WORKSHOP PHOTO GALLERY -->
+        <div class="sec-title">
+          <h2>Hardware Prototypes &amp; Workshop Showcase</h2>
+          <p>Real classroom kits and working builds from PixelActuate Hub</p>
+        </div>
+        <div class="grid-3">
+          <div class="photo-card">
+            <div class="photo-slot">
+              <img src="gallery/smart_gate.jpg" alt="Automated Smart Gate Prototype" onerror="this.outerHTML='<span>📷 Upload gallery/smart_gate.jpg<br/>(Automated Smart Gate Desk Demo)</span>'" />
+            </div>
+            <div style="padding:1rem;">
+              <h4 style="color:var(--navy); font-size:0.98rem;">Automated Ultrasonic Smart Gate</h4>
+              <p style="font-size:0.84rem; color:var(--slate);">Week 4 capstone prototype combining Arduino Uno, IR/Ultrasonic detection, and SG90 servo actuation.</p>
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-slot">
+              <img src="gallery/breadboard_kit.jpg" alt="4-Team Student Hardware Kit" onerror="this.outerHTML='<span>📷 Upload gallery/breadboard_kit.jpg<br/>(Classroom Breadboard &amp; Sensor Kit)</span>'" />
+            </div>
+            <div style="padding:1rem;">
+              <h4 style="color:var(--navy); font-size:0.98rem;">4-Team Classroom Hardware Kit</h4>
+              <p style="font-size:0.84rem; color:var(--slate);">Zero-soldering 5V breadboard modules designed for safe, rapid prototyping by Class 6–10 teams.</p>
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-slot">
+              <img src="gallery/workshop_demo.jpg" alt="Hands-On Student Session" onerror="this.outerHTML='<span>📷 Upload gallery/workshop_demo.jpg<br/>(Student Circuit &amp; Coding Session)</span>'" />
+            </div>
+            <div style="padding:1rem;">
+              <h4 style="color:var(--navy); font-size:0.98rem;">Live Coding &amp; Sensor Calibration</h4>
+              <p style="font-size:0.84rem; color:var(--slate);">Students testing real-time threshold logic and verifying physical circuit connections.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <!-- ==================== PAGE 5: ENQUIRY FORM & FOUNDER ==================== -->
+      <!-- ==================== PAGE 6: ENQUIRY FORM & FOUNDER ==================== -->
       <section id="page-enquiry" class="page-section">
         <div class="sec-title">
           <h2>Enquiry Form &amp; Founder Profile</h2>
@@ -765,33 +1071,30 @@
     <div class="bot-quick">
       <button class="q-chip" onclick="askBot('bootcamp')">Year-End Bootcamp</button>
       <button class="q-chip" onclick="askBot('school')">School Lab Cost</button>
-      <button class="q-chip" onclick="askBot('tuition')">Math &amp; Physics</button>
-      <button class="q-chip" onclick="askBot('form')">Open Enquiry Form</button>
+      <button class="q-chip" onclick="askBot('pdfs')">Free PDFs</button>
+      <button class="q-chip" onclick="askBot('form')">Enquiry Form</button>
     </div>
   </div>
 
   <script>
-    /* 1. SOLAR-SYSTEM ORBITING FORMULAS (5 MATH + 5 PHYSICS + 5 ROBOTICS) */
+    /* 1. PERIMETER SOLAR-SYSTEM ORBITING FORMULAS (KEEPS CENTER TEXT CLEAR) */
     const orbitLayer = document.getElementById('orbitLayer');
     const orbitData = [
-      // 5 Math Formulas
-      { text: 'a² + b² = c²', cls: 'math', rx: 0.42, ry: 0.34, speed: 0.0022, angle: 0.0 },
-      { text: 'sin²θ + cos²θ = 1', cls: 'math', rx: 0.46, ry: 0.38, speed: 0.0019, angle: 1.2 },
-      { text: 'x = (-b ± √Δ)/2a', cls: 'math', rx: 0.38, ry: 0.42, speed: 0.0025, angle: 2.5 },
-      { text: 'A = πr²', cls: 'math', rx: 0.44, ry: 0.30, speed: 0.0021, angle: 3.8 },
-      { text: 'tanθ = sinθ/cosθ', cls: 'math', rx: 0.40, ry: 0.36, speed: 0.0023, angle: 5.0 },
-      // 5 Physics Formulas
-      { text: 'V = I × R', cls: 'phys', rx: 0.45, ry: 0.35, speed: 0.0020, angle: 0.5 },
-      { text: 'F = m × a', cls: 'phys', rx: 0.37, ry: 0.40, speed: 0.0026, angle: 1.8 },
-      { text: 'P = V × I', cls: 'phys', rx: 0.43, ry: 0.32, speed: 0.0021, angle: 3.1 },
-      { text: 'v = u + at', cls: 'phys', rx: 0.47, ry: 0.39, speed: 0.0018, angle: 4.3 },
-      { text: 'E = ½mv²', cls: 'phys', rx: 0.39, ry: 0.35, speed: 0.0024, angle: 5.6 },
-      // 5 Robotics & Automation Formulas
-      { text: 'd = (v·t) / 2', cls: 'robo', rx: 0.44, ry: 0.37, speed: 0.0022, angle: 0.9 },
-      { text: 'Duty = (Ton/T)×100%', cls: 'robo', rx: 0.48, ry: 0.41, speed: 0.0017, angle: 2.1 },
-      { text: 'ω = 2πf', cls: 'robo', rx: 0.36, ry: 0.33, speed: 0.0027, angle: 3.4 },
-      { text: 'τ = r × F', cls: 'robo', rx: 0.41, ry: 0.39, speed: 0.0020, angle: 4.7 },
-      { text: 'PWM • ADAS • IoT', cls: 'robo', rx: 0.45, ry: 0.31, speed: 0.0023, angle: 5.9 }
+      { text: 'a² + b² = c²', cls: 'math', rx: 0.47, ry: 0.45, speed: 0.0020, angle: 0.0 },
+      { text: 'sin²θ + cos²θ = 1', cls: 'math', rx: 0.48, ry: 0.46, speed: 0.0018, angle: 1.2 },
+      { text: 'x = (-b ± √Δ)/2a', cls: 'math', rx: 0.46, ry: 0.44, speed: 0.0022, angle: 2.5 },
+      { text: 'A = πr²', cls: 'math', rx: 0.47, ry: 0.45, speed: 0.0019, angle: 3.8 },
+      { text: 'tanθ = sinθ/cosθ', cls: 'math', rx: 0.46, ry: 0.46, speed: 0.0021, angle: 5.0 },
+      { text: 'V = I × R', cls: 'phys', rx: 0.48, ry: 0.45, speed: 0.0019, angle: 0.5 },
+      { text: 'F = m × a', cls: 'phys', rx: 0.46, ry: 0.46, speed: 0.0023, angle: 1.8 },
+      { text: 'P = V × I', cls: 'phys', rx: 0.47, ry: 0.44, speed: 0.0020, angle: 3.1 },
+      { text: 'v = u + at', cls: 'phys', rx: 0.48, ry: 0.46, speed: 0.0017, angle: 4.3 },
+      { text: 'E = ½mv²', cls: 'phys', rx: 0.46, ry: 0.45, speed: 0.0021, angle: 5.6 },
+      { text: 'd = (v·t) / 2', cls: 'robo', rx: 0.47, ry: 0.46, speed: 0.0020, angle: 0.9 },
+      { text: 'Duty = (Ton/T)×100%', cls: 'robo', rx: 0.48, ry: 0.45, speed: 0.0016, angle: 2.1 },
+      { text: 'ω = 2πf', cls: 'robo', rx: 0.46, ry: 0.44, speed: 0.0024, angle: 3.4 },
+      { text: 'τ = r × F', cls: 'robo', rx: 0.47, ry: 0.46, speed: 0.0019, angle: 4.7 },
+      { text: 'PWM • ADAS • IoT', cls: 'robo', rx: 0.48, ry: 0.45, speed: 0.0021, angle: 5.9 }
     ];
 
     const orbitEls = orbitData.map(item => {
@@ -813,9 +1116,7 @@
       const cx = window.innerWidth / 2;
       const cy = window.innerHeight / 2;
       orbitEls.forEach(obj => {
-        if (!obj.el.paused) {
-          obj.data.angle += obj.data.speed;
-        }
+        if (!obj.el.paused) obj.data.angle += obj.data.speed;
         const x = cx + Math.cos(obj.data.angle) * (window.innerWidth * obj.data.rx) - 45;
         const y = cy + Math.sin(obj.data.angle) * (window.innerHeight * obj.data.ry) - 14;
         obj.el.style.transform = `translate(${x}px, ${y}px)`;
@@ -839,7 +1140,24 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* 3. SWIPEABLE SCIENTIST QUOTE CLOUDS (READS FROM scientists/ FOLDER) */
+    /* 3. SYLLABUS & RESOURCE FILTERS */
+    function filterSyllabus(tag, btn) {
+      btn.parentElement.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('#syllabusTable tbody tr').forEach(row => {
+        const tags = row.getAttribute('data-tags');
+        row.style.display = (tag === 'ALL' || tags.includes(tag)) ? '' : 'none';
+      });
+    }
+    function filterResources(subj, btn) {
+      btn.parentElement.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('#resourceGrid .card').forEach(card => {
+        card.style.display = (subj === 'ALL' || card.getAttribute('data-subj') === subj) ? '' : 'none';
+      });
+    }
+
+    /* 4. SWIPEABLE SCIENTIST QUOTE CLOUDS */
     const scientists = [
       {
         name: 'Nikola Tesla — Pioneer of Alternating Current & Electromagnetism',
@@ -889,7 +1207,7 @@
       if (dx > 40) prevQuote();
     });
 
-    /* 4. LAB 1: JOYSTICK PICK-AND-PLACE ROBOTIC ARM */
+    /* 5. LAB 1: JOYSTICK PICK-AND-PLACE ROBOTIC ARM */
     let gripX = 135, gripY = 95, joyVX = 0, joyVY = 0;
     let crateX = 85, crateY = 122, holding = false, delivered = 0;
     const joyBase = document.getElementById('joyBase');
@@ -900,10 +1218,8 @@
       const rect = joyBase.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      let dx = clientX - cx;
-      let dy = clientY - cy;
-      const maxR = 34;
-      const dist = Math.hypot(dx, dy);
+      let dx = clientX - cx, dy = clientY - cy;
+      const maxR = 34, dist = Math.hypot(dx, dy);
       if (dist > maxR) { dx = (dx / dist) * maxR; dy = (dy / dist) * maxR; }
       joyStick.style.left = (32 + dx) + 'px';
       joyStick.style.top = (32 + dy) + 'px';
@@ -923,42 +1239,31 @@
 
     function toggleGripper() {
       const btn = document.getElementById('gripBtn');
-      const clawL = document.getElementById('clawL');
-      const clawR = document.getElementById('clawR');
+      const clawL = document.getElementById('clawL'), clawR = document.getElementById('clawR');
       if (!holding) {
         const dist = Math.hypot(gripX - (crateX + 10), (gripY + 12) - (crateY + 10));
         if (dist < 26) {
-          holding = true;
-          btn.innerText = '🖐️ RELEASE CRATE';
-          btn.style.background = '#f59e0b';
+          holding = true; btn.innerText = '🖐️ RELEASE CRATE'; btn.style.background = '#f59e0b';
           clawL.setAttribute('x2', '-7'); clawR.setAttribute('x2', '7');
         } else {
           document.getElementById('armTelemetry').innerText = 'MOVE CLOSER TO GREEN CRATE FIRST!';
+          return;
         }
       } else {
-        holding = false;
-        btn.innerText = '🤏 GRAB CRATE';
-        btn.style.background = '#0284c7';
+        holding = false; btn.innerText = '🤏 GRAB CRATE'; btn.style.background = '#0284c7';
         clawL.setAttribute('x2', '-12'); clawR.setAttribute('x2', '12');
         crateY = 122;
-        if (crateX >= 190 && crateX <= 255) {
-          delivered++;
-          crateX = 75 + Math.random() * 55;
-        }
+        if (crateX >= 190 && crateX <= 255) { delivered++; crateX = 75 + Math.random() * 55; }
       }
-      updateArmTelemetry();
+      document.getElementById('armTelemetry').innerText =
+        `GRIPPER: ${holding ? 'CLOSED (HOLDING)' : 'OPEN'} | DELIVERED: ${delivered}`;
     }
 
     function resetArmGame() {
       gripX = 135; gripY = 95; crateX = 85; crateY = 122; holding = false;
       document.getElementById('gripBtn').innerText = '🤏 GRAB CRATE';
       document.getElementById('gripBtn').style.background = '#0284c7';
-      updateArmTelemetry();
-    }
-
-    function updateArmTelemetry() {
-      document.getElementById('armTelemetry').innerText =
-        `GRIPPER: ${holding ? 'CLOSED (HOLDING)' : 'OPEN'} | DELIVERED: ${delivered}`;
+      document.getElementById('armTelemetry').innerText = `GRIPPER: OPEN | DELIVERED: ${delivered}`;
     }
 
     setInterval(() => {
@@ -966,10 +1271,7 @@
         gripX = Math.max(65, Math.min(255, gripX + joyVX));
         gripY = Math.max(30, Math.min(122, gripY + joyVY));
       }
-      if (holding) {
-        crateX = gripX - 10;
-        crateY = gripY + 8;
-      }
+      if (holding) { crateX = gripX - 10; crateY = gripY + 8; }
       const elbowX = (47 + gripX) / 2 - 12;
       const elbowY = Math.min(gripY, 120) - 32;
       document.getElementById('armLink1').setAttribute('x2', elbowX);
@@ -985,37 +1287,31 @@
       document.getElementById('payloadBox').setAttribute('y', crateY);
     }, 30);
 
-    /* 5. LAB 2: MATH PROJECTILE SIMULATOR */
+    /* 6. LAB 2: MATH PROJECTILE SIMULATOR */
     function updateProjectile() {
       const deg = parseFloat(document.getElementById('angSlider').value);
       const v = parseFloat(document.getElementById('velSlider').value);
       document.getElementById('angTxt').innerText = deg + '°';
       document.getElementById('velTxt').innerText = v + ' m/s';
-
-      const rad = deg * Math.PI / 180;
-      const g = 9.8;
+      const rad = deg * Math.PI / 180, g = 9.8;
       const range = (v * v * Math.sin(2 * rad)) / g;
       const maxH = (v * v * Math.sin(rad) * Math.sin(rad)) / (2 * g);
-
       const endX = Math.min(260, 25 + range);
       const midX = (25 + endX) / 2;
       const ctrlY = Math.max(10, 125 - maxH * 1.4);
-
       document.getElementById('trajPath').setAttribute('d', `M 25 125 Q ${midX} ${ctrlY} ${endX} 125`);
       document.getElementById('projDot').setAttribute('cx', endX);
-
       const hit = Math.abs(range - 180) <= 12;
       const out = document.getElementById('projReadout');
       out.style.color = hit ? '#15803d' : '#0f172a';
       out.innerText = `Range R = ${range.toFixed(1)} m | ${hit ? '🎯 TARGET HIT!' : 'Adjust angle/speed to hit 180m'}`;
     }
 
-    /* 6. LAB 3: PHYSICS OHM'S LAW */
+    /* 7. LAB 3: PHYSICS OHM'S LAW */
     let swOn = false;
     function toggleSwitch() {
       swOn = !swOn;
-      const btn = document.getElementById('swBtn');
-      const blade = document.getElementById('bladeLine');
+      const btn = document.getElementById('swBtn'), blade = document.getElementById('bladeLine');
       btn.style.background = swOn ? '#16a34a' : '#dc2626';
       btn.innerText = swOn ? 'SWITCH: CLOSED (ON)' : 'SWITCH: OPEN (OFF)';
       blade.setAttribute('y2', swOn ? '25' : '10');
@@ -1027,13 +1323,8 @@
       const R = parseFloat(document.getElementById('rSlide').value);
       document.getElementById('vTxt').innerText = V + ' V';
       document.getElementById('rTxt').innerText = R + ' Ω';
-      const out = document.getElementById('ohmOut');
-      const halo = document.getElementById('ledHalo');
-      const bulb = document.getElementById('ledBulb');
-      if (!swOn) {
-        out.innerText = 'I = 0.0 mA | Circuit Open';
-        halo.setAttribute('opacity', '0'); bulb.setAttribute('fill', '#334155'); return;
-      }
+      const out = document.getElementById('ohmOut'), halo = document.getElementById('ledHalo'), bulb = document.getElementById('ledBulb');
+      if (!swOn) { out.innerText = 'I = 0.0 mA | Circuit Open'; halo.setAttribute('opacity', '0'); bulb.setAttribute('fill', '#334155'); return; }
       const mA = (V / R) * 1000;
       if (mA > 35) {
         out.innerText = `I = ${mA.toFixed(1)} mA | ⚠️ HIGH CURRENT! Increase R`;
@@ -1044,24 +1335,41 @@
       }
     }
 
-    /* 7. LAB 4: ROBOTICS SMART GATE */
-    function moveGate(val) {
-      const d = parseInt(val);
+    /* 8. LAB 4: ROBOTICS SMART GATE + LIVE FIRMWARE THRESHOLD */
+    let triggerThreshold = 20;
+    function toggleCodePanel() {
+      const p = document.getElementById('codePanel');
+      p.style.display = p.style.display === 'block' ? 'none' : 'block';
+    }
+    function updateThreshold(val) {
+      triggerThreshold = Math.max(5, Math.min(65, parseInt(val) || 20));
+      document.getElementById('trigLbl').innerText = triggerThreshold;
+      moveGate();
+    }
+    function moveGate() {
+      const d = parseInt(document.getElementById('gateSlider').value);
       document.getElementById('dTxt').innerText = d + ' cm';
       const cx = 65 + ((d - 5) / 65) * 140;
       document.getElementById('roboCar').setAttribute('transform', `translate(${cx}, 82)`);
-      const arm = document.getElementById('gateArm');
-      const out = document.getElementById('gOut');
-      if (d <= 20) {
+      const arm = document.getElementById('gateArm'), out = document.getElementById('gOut');
+      if (d <= triggerThreshold) {
         arm.setAttribute('transform', 'rotate(-78 36 68)');
-        out.innerText = '✅ GATE OPEN (90°) • Buzzer BEEP!';
+        out.innerText = `✅ GATE OPEN (90°) • Triggered at ≤ ${triggerThreshold} cm`;
       } else {
         arm.setAttribute('transform', 'rotate(0 36 68)');
-        out.innerText = '🚧 GATE CLOSED (0°) • Buzzer OFF';
+        out.innerText = `🚧 GATE CLOSED (0°) • Waiting for ≤ ${triggerThreshold} cm`;
       }
     }
 
-    /* 8. PIXELBOT */
+    /* 9. CERTIFICATE LIVE PREVIEWER */
+    function updateCert() {
+      const st = document.getElementById('certStudent').value.trim();
+      const sc = document.getElementById('certSchool').value.trim();
+      document.getElementById('certStudentOut').innerText = st || '[ Student Name ]';
+      document.getElementById('certSchoolOut').innerText = sc || '[ Partner School Name ]';
+    }
+
+    /* 10. PIXELBOT */
     function toggleBot() {
       const b = document.getElementById('botBox');
       b.style.display = b.style.display === 'block' ? 'none' : 'block';
@@ -1071,7 +1379,7 @@
       const data = {
         bootcamp: ['Tell me about the Year-End Bootcamp', 'It is a 4-week hands-on Robotics & Automation sprint for Class 6–10 covering circuits, sensors, servo motors, and a Smart City finale.'],
         school: ['What does it cost a school?', '₹0 school infrastructure cost! We bring all hardware kits and issue co-signed certificates.'],
-        tuition: ['Do you teach Math & Physics?', 'Yes! Weekend and online conceptual batches for Class 6–10 Math, Physics & Robotics.'],
+        pdfs: ['Where are the free PDFs?', 'Tap "Learning Resources" in the menu to view and download Arduino, Ohm’s Law, Coding Syntax, and Maths sheets.'],
         form: ['How do I request a callback?', 'Tap "Enquiry & Founder" in the Engineering Dashboard to submit our quick Google Form, or WhatsApp +91 93913 62323.']
       };
       box.innerHTML += `<div class="u-msg">${data[k][0]}</div><div class="b-msg">${data[k][1]}</div>`;
